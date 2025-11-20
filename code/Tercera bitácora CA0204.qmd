@@ -1,25 +1,22 @@
 ---
 format: 
- pdf: 
-   papersize: letter
-   documentclass: article
-   lang: es-CR
-   titlepage: true
-   toc: true
-   toc-title: "Índice"
-   toccolor: "black"
-   fontsize: "11pt"
-   mainfont: Times New Roman
-   urlcolor: "blue"
-   number-sections: true
-   margin-left: "2.54cm"
-   margin-right: "2.54cm"
-   margin-top: "2.54cm"
-   margin-bottom: "2.54cm"
-   #include-before-body: Portada.qmd
-   header-includes:
-            - \usepackage{indentfirst}
-            - \setlength{\parindent}{1.27cm}
+  pdf: 
+    papersize: letter
+    documentclass: article
+    lang: es-CR
+    titlepage: true
+    fontsize: "11pt"
+    mainfont: Times New Roman
+    urlcolor: "blue"
+    number-sections: true
+    margin-left: "2.54cm"
+    margin-right: "2.54cm"
+    margin-top: "2.54cm"
+    margin-bottom: "2.54cm"
+    #include-before-body: Portada.qmd
+    header-includes:
+      - \usepackage{indentfirst}
+      - \setlength{\parindent}{1.27cm}
 ---
 
 # Fundamentación del proyecto
