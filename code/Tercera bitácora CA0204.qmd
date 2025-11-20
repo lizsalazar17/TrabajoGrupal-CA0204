@@ -19,6 +19,26 @@ format:
       - \setlength{\parindent}{1.27cm}
 ---
 
+\newpage
+
+```{r, echo=FALSE}
+library(readr)
+
+library(dplyr)
+
+library(ggplot2)
+
+url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
+
+temp.file <- tempfile(fileext = ".csv")
+
+download.file(url, destfile = temp.file, mode = "wb")
+
+base.de.datos <- read_csv(temp.file)
+   
+View(base.de.datos)
+
+```
 # Fundamentación del proyecto
 
 ## Pregunta de investigación
@@ -26,34 +46,36 @@ format:
 ¿Cómo varía la expresión y la frecuencia de las mutaciones del gen TP53 en el tejido mamario de pacientes y personas en riesgo de desarrollar cáncer de pecho, considerando los distintos grupos etarios? ¿Cómo se relacionan los resultados obtenidos a los registrados en Costa Rica?
 
 # Objetivos
+
 ## Objetivo general
 
 Analizar la expresión y frecuencia de las mutaciones del gen TP53 en el tejido mamario de pacientes y personas en riesgo de desarrollar cáncer de pecho, diferenciando los resultados por grupos etarios.
 
 ## Objetivos específicos
 
-- Identificar las mutaciones más frecuentes del gen TP53 presentes en el tejido mamario de los individuos analizados.
+-   Identificar las mutaciones más frecuentes del gen TP53 presentes en el tejido mamario de los individuos analizados.
 
-- Describir la distribución etaria de los casos diagnosticados con mutaciones en el gen TP53.
+-   Describir la distribución etaria de los casos diagnosticados con mutaciones en el gen TP53.
 
-- Determinar la relación existente entre los tipos de mutación y la edad al diagnóstico.
+-   Determinar la relación existente entre los tipos de mutación y la edad al diagnóstico.
 
-- Comparar la prevalencia de casos según las regiones geográficas y consorcios internacionales de origen.
+-   Comparar la prevalencia de casos según las regiones geográficas y consorcios internacionales de origen.
 
-- Formular hipótesis preliminares sobre la posible correlación entre las alteraciones del gen TP53 y la incidencia de cáncer de pecho en Costa Rica, a partir de los registros del Ministerio de Salud.
+-   Formular hipótesis preliminares sobre la posible correlación entre las alteraciones del gen TP53 y la incidencia de cáncer de pecho en Costa Rica, a partir de los registros del Ministerio de Salud.
 
 # Hipótesis
 
 ## Hipótesis general:
+
 La expresión del gen TP53 en el tejido mamario presenta variaciones significativas según el grupo etario, siendo más frecuentes las mutaciones en adultos jóvenes y adultos medios.
 
 # Hipótesis específicas:
 
-- H1: Las mutaciones más frecuentes del gen TP53 se concentran en individuos diagnosticados entre los 30 y 50 años.
+-   H1: Las mutaciones más frecuentes del gen TP53 se concentran en individuos diagnosticados entre los 30 y 50 años.
 
-- H2: Existe una relación significativa entre el tipo de mutación (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
+-   H2: Existe una relación significativa entre el tipo de mutación (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
 
-- H3: Las regiones con mayor representación de casos presentan también mayor diversidad mutacional del gen TP53.
+-   H3: Las regiones con mayor representación de casos presentan también mayor diversidad mutacional del gen TP53.
 
 (Agregar fuentes)
 
@@ -83,12 +105,112 @@ Antes de aplicar los procedimientos inferenciales, se realizará una limpieza y 
 
 De este modo, cada método estadístico aportará evidencia específica para responder la pregunta de investigación:
 
-- Los análisis descriptivos permitirán conocer cómo se distribuyen la edad y las mutaciones del gen TP53.
+-   Los análisis descriptivos permitirán conocer cómo se distribuyen la edad y las mutaciones del gen TP53.
 
-- Las pruebas de comparación (ANOVA/Kruskal–Wallis) identificarán si existen diferencias significativas en la edad de diagnóstico según el tipo de mutación.
+-   Las pruebas de comparación (ANOVA/Kruskal–Wallis) identificarán si existen diferencias significativas en la edad de diagnóstico según el tipo de mutación.
 
-- Los análisis de correlación mostrarán si existe una relación entre la edad y la frecuencia de mutaciones reportadas.
+-   Los análisis de correlación mostrarán si existe una relación entre la edad y la frecuencia de mutaciones reportadas.
 
-- Finalmente, el análisis de frecuencias permitirá observar la incidencia relativa de las mutaciones en cada grupo etario.
+-   Finalmente, el análisis de frecuencias permitirá observar la incidencia relativa de las mutaciones en cada grupo etario.
 
 Posteriormente, se llevará a cabo un análisis comparativo entre regiones geográficas, tomando como base la variable Country de la base internacional. Se describirá la distribución de mutaciones del gen TP53 en diferentes países y regiones, con especial énfasis en América Latina. Esta información se contrastará cualitativamente con la base de datos del Ministerio de Salud de Costa Rica, para explorar si los patrones internacionales guardan relación con las tasas de incidencia y mortalidad por cáncer de mama en la población costarricense. Aunque no se establecerán correlaciones estadísticas directas entre ambas bases debido a la diferencia en el tipo de información, este ejercicio permitirá contextualizar los resultados globales en el ámbito nacional, y formular hipótesis sobre la posible prevalencia de mutaciones similares en el país.
+
+
+Frecuencias de MUT_ID
+```{r}
+frecuencias.mutaciones <- base.de.datos %>%
+  group_by(MUT_ID) %>% 
+  summarise(
+    frecuencia = n(),
+    porcentaje = round((n()/nrow(base.de.datos))*100, 3)
+  ) %>% 
+  arrange(desc(frecuencia))
+```
+
+Top 10 Mutaciones con mayor frecuencia
+```{r}
+top.mutaciones <- frecuencias.mutaciones %>% 
+  head(10)
+```
+
+Histograma sobre la distribución de edades
+```{r}
+base.de.datos %>% 
+  filter(!is.na(Age)) %>% 
+  ggplot(aes(x = Age)) +
+  geom_histogram(color = "black", fill = "lightblue") +
+  scale_x_continuous(breaks = seq(0,100,5)) +
+  labs(title = "Distribución de edades",
+       x = "Edad",
+       y = "Cantidad") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Boxplot de Edades con respecto al Efecto de Mutación
+```{r}
+base.de.datos %>%
+  filter(!is.na(Age), !is.na(Effect)) %>%
+  ggplot(aes(x = Effect, y = Age)) +
+  geom_boxplot(fill = "lightblue", alpha = 0.7) +
+  labs(title = "Distribución de Edades por Tipo de Efecto",
+       x = "Tipo de Efecto",
+       y = "Edad") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Boxplot de Edades con respecto a la Clase de Mutación
+```{r}
+base.de.datos %>%
+  filter(!is.na(Age), !is.na(Class)) %>%
+  ggplot(aes(x = Class, y = Age)) +
+  geom_boxplot(fill = "lightgreen", alpha = 0.7) +
+  scale_y_continuous(breaks = seq(0,100,10)) +
+  labs(title = "Distribución de Edades por Tipo de Efecto",
+       x = "Tipo de Mutación",
+       y = "Edad") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Boxplot de Edades y Sexo
+```{r}
+base.de.datos %>%
+  filter(!is.na(Age), !is.na(Sex)) %>%
+  mutate(Sexo = ifelse(Sex == "F", "Femenino", "Masculino")) %>%
+  ggplot(aes(x = Sexo, y = Age)) +
+  geom_boxplot(fill = "#4AA0BD", alpha = 0.7) +
+  scale_y_continuous(breaks = seq(0,100,10)) +
+  labs(title = "Distribución de Edades por Tipo de Efecto",
+       x = "Tipo de Mutación",
+       y = "Edad") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+**Estadísticas Descriptivas de la Edad**
+
+Edad promedio: `r round(mean(base.de.datos$Age, na.rm = TRUE),1)`
+Edad mediana: `r round(median(base.de.datos$Age, na.rm = TRUE),1)`
+Edad máxima: `r round(max(base.de.datos$Age, na.rm = TRUE),1)`
+Edad mínima: `r round(min(base.de.datos$Age, na.rm = TRUE),1)`
+
+Primer cuartil: `r round(quantile(base.de.datos$Age, 0.25, na.rm = TRUE),1)`
+Segundo cuartil: `r round(quantile(base.de.datos$Age, 0.50, na.rm = TRUE),1)` 
+Tercer cuartil: `r round(quantile(base.de.datos$Age, 0.75, na.rm = TRUE),1)`
+
+Desviación estándar: `r round(sd(base.de.datos$Age, na.rm = TRUE),1)`
+Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)`
+IQR: `r round(IQR(base.de.datos$Age, na.rm = TRUE),1)`
+
+
+**Conclusiones**
+
+Nuestra primera hipósis hipótesis fue que las edades estaban concentradas en un rango entre los 30 y 50 años, basados en los resultados obtenidos en el gráfico boxplot, se puede llegar a la conclusión de que el rango de edad concentrado entre los 55 y 20 años, con mayores frecuencias entre los 30 y 40 años. Por otro lado se obtuvo que la edad promedio fue `r round(mean(base.de.datos$Age, na.rm = TRUE),1)`, mientras que la mediana de `r round(median(base.de.datos$Age, na.rm = TRUE),1)`, lo que indica que no hay un sesgo a edades muy jóvenes o muy avanzadas; también se puede decir que en general las mutaciones del gen TP53 no se está en gran medida en pacientes de más de 50 años, sino que se está concentrando en edades de menos de 50.
+
+Además, se obtuvo que la mutación más frecuente fue la del identificador 4585 con 314 observaciones, representando un 6.754% del total de observaciones, casi el doble que la mutación en el segundo lugar, la cual tiene el identificador 2143 con 180 observaciones, que representa un 3.872%, y la tercer mutación con mayor frecuencia fue el 3236 con 160 observaciones, representando un 3.442% del total de mutaciones.
+
+
+
