@@ -24,6 +24,8 @@ editor:
 
 \newpage
 
+# Librerías 
+
 ```{r, echo=FALSE}
 library(readr)
 
@@ -31,6 +33,12 @@ library(dplyr)
 
 library(ggplot2)
 
+
+```
+
+# Bases de datos 
+
+```{r}
 url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
 
 temp.file <- tempfile(fileext = ".csv")
@@ -40,7 +48,6 @@ download.file(url, destfile = temp.file, mode = "wb")
 base.de.datos <- read_csv(temp.file)
    
 View(base.de.datos)
-
 ```
 
 # Fundamentación del proyecto
@@ -258,7 +265,7 @@ Desviación estándar: `r round(sd(base.de.datos$Age, na.rm = TRUE),1)`
 Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)` IQR:
 `r round(IQR(base.de.datos$Age, na.rm = TRUE),1)`
 
-# Gráficos 
+# Gráficos
 
 Histograma sobre la distribución de edades
 
@@ -321,7 +328,9 @@ base.de.datos %>%
 
 ```
 
-# Conclusiones 
+# Conclusiones
+
+## Primera hipótesis 
 
 Nuestra primera hipósis hipótesis fue que las edades estaban
 concentradas en un rango entre los 30 y 50 años, basados en los
