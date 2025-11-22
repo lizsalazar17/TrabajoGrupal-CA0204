@@ -33,6 +33,8 @@ library(dplyr)
 
 library(ggplot2)
 
+library(DescTools)
+library(tidyr)
 
 ```
 
@@ -328,6 +330,7 @@ base.de.datos %>%
 
 ```
 
+
 Histogramas de correlación de edad y conteo
 
 ```{r, warning=FALSE}
@@ -370,6 +373,49 @@ cor.data.diagnostico %>%
   theme_minimal()
 ```
 
+
+Boxplot de Edad al diagnóstico respecto a las mutaciones más frecuentes
+
+```{r}
+ggplot(base.infer.2, aes(x = as.factor(MUT_ID), y = Age_at_diagnosis)) +
+  geom_boxplot(fill = "pink", alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Edad al diagnóstico según Mutación (Top 10)",
+       x = "MUT_ID",
+       y = "Edad al diagnóstico")
+```
+
+QQ-plots de Edad al diagnóstico con respecto a las mutaciones más frecuentes
+```{r}
+base.infer.2 %>% 
+  mutate(MUT_ID = as.factor(MUT_ID)) %>%
+  ggplot(aes(sample = Age_at_diagnosis)) +
+  stat_qq() +
+  stat_qq_line() +
+  facet_wrap(~ MUT_ID, scales = "free") +
+  theme_minimal() +
+  labs(title = "QQ-Plots de Age_at_diagnosis por Mutación",
+       y = "Cuantiles observados",
+       x = "Cuantiles teóricos normales")
+
+```
+Forest plot 
+
+```{r}
+ggplot(df.kruskal, aes(x = `mean rank diff`,
+               y = reorder(Comparison, `mean rank diff`),
+               color = Signif)) +
+  geom_point(size=3) +
+  geom_vline(xintercept = 0, linetype="dashed") +
+  theme_minimal() +
+  labs(title = "Forest plot de diferencias de rangos (Dunn Test)",
+       x = "Diferencia de Rangos",
+       y = "Comparación entre Mutaciones",
+       color = "Significativo") +
+  scale_color_manual(values=c("Sí"="red","No"="gray"))
+     
+
+```
 #Discusión y análisis de resultados
 
 Aunque la hipótesis H2 plantea una relación entre el tipo de mutación (MUT_ID) y la edad al diagnóstico, en esta sección se analiza una variable sustituta relacionada con la frecuencia mutacional (TCGA_ICGC_GENIE_count) para evaluar si existe una asociación entre la edad y la presencia o cantidad de mutaciones reportadas por los consorcios internacionales. Este análisis permite explorar parcialmente la hipótesis H2, identificando si la edad podría estar relacionada con la carga mutacional observada en los pacientes.
@@ -386,6 +432,71 @@ cor.data <- base.de.datos.filtrada %>%
   select(Age, TCGA_ICGC_GENIE_count)
 ```
 
+## Respecto al análisis de edad al diagnóstico y mutaciones más frecuentes
+
+Al analizar la relación entre la variable Age_at_diagnosis y MUT_ID usando las 10 mutaciones más frecuentes, se utilizó shapiro.test para comprobar si las variables se dstribuyen normalmente. Esto se puede ver en la gráfica 10. Debido a que se presentaron pocos datos que si cumplen con esta condición, se escogió Kruskal-Wallis para determinar si hay una diferencia significativa entre los distintos grupos de mutaciones. 
+
+```{r}
+#Datos a utilizar para el análisis de la relación entre la edad del diagnóstico y las mutaciones más frecuentes
+
+base.infer <- base.de.datos %>% 
+  filter(Topography == "BREAST")
+
+base.infer <- base.infer %>%
+  select(MUT_ID, Age_at_diagnosis) %>%
+  filter(!is.na(MUT_ID), !is.na(Age_at_diagnosis))
+
+frecuencias.mutaciones.infer <- base.infer %>%
+  group_by(MUT_ID) %>%
+  summarise(frecuencia = n()) %>%
+  arrange(desc(frecuencia))
+
+top10.infer <- frecuencias.mutaciones.infer %>%
+  slice_head(n = 10) %>%
+  pull(MUT_ID)
+
+
+base.infer.2 <- base.infer %>%
+  filter(MUT_ID %in% top10.infer)
+
+#Veamos si los datos se distribuyen normalmente
+
+base.infer.2 %>%
+  group_by(MUT_ID) %>%
+  summarise(
+    n = n(),
+    shapiro_p = if (n() >= 3 && n() <= 5000) {
+      shapiro.test(Age_at_diagnosis)$p.value
+    } else {
+      NA_real_
+    }
+  )
+```
+
+Mediante la aplicación de Kruskal-Wallis se detectó un valor menor que 0,05 lo que significa que entre algunos de los grupos analizados hay una diferencia significativa respecto a las edades al diagnóstico. A partir de ellos, se aplicó dunnTest que ayuda a separar pares de grupos para que diferencias hay entre ellos y así detectar los tipos de mutaciones con mayor o menor edad de diagnóstico.
+
+```{r}
+
+kruskal.test(Age_at_diagnosis ~ MUT_ID, data = base.infer.2)
+
+dunn <- DunnTest(Age_at_diagnosis ~ MUT_ID, data = base.infer.2, method="bonferroni")
+
+df.kruskal <- as.data.frame(dunn[[1]])
+df.kruskal$Comparison <- rownames(df)
+rownames(df.kruskal) <- NULL
+
+df.kruskal <- df.kruskal %>% 
+  mutate(Comparison = as.character(Comparison),
+         Signif = ifelse(pval < 0.05, "Sí", "No"))
+
+```
+# Interpretación de Forest plot (Gráfico 11)
+
+En este gráfico se presentan diferencias de rangos promedio entre pares de mutacione. Cada punto es una comparación y los colores son determindados de acuerdos a si el valor p es menor a 0,05 (rojos) y o sino (grises), es decir, si se presenta una diferencia estadística significativa. 
+
+El eje vertical permite observar que mutación presenta un diagnóstico mayor respecto a la mutación con la que se compara, si la diferencia es positiva, el primera mutación del par es la que tiende a asociarse con una edad de diagnóstico tardío. Si la diferencia es negativa, el primer par es, en cambio, el que se relaciona con una edad temprana de diagnóstico. 
+
+Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, y las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas.
 
 Respecto a los histogramas (Figuras 5 y 6) 
 
