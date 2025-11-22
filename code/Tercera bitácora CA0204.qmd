@@ -38,7 +38,7 @@ library(ggplot2)
 
 # Bases de datos 
 
-```{r}
+```{r, warning=FALSE}
 url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
 
 temp.file <- tempfile(fileext = ".csv")
@@ -231,7 +231,7 @@ similares en el país.
 
 Frecuencias de MUT_ID
 
-```{r}
+```{r, warning=FALSE}
 frecuencias.mutaciones <- base.de.datos %>%
   group_by(MUT_ID) %>% 
   summarise(
@@ -243,7 +243,7 @@ frecuencias.mutaciones <- base.de.datos %>%
 
 Las diez mutaciones con mayor frecuencia
 
-```{r}
+```{r, warning=FALSE}
 top.mutaciones <- frecuencias.mutaciones %>% 
   head(10)
 ```
@@ -269,7 +269,7 @@ Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)` IQR:
 
 Histograma sobre la distribución de edades
 
-```{r}
+```{r, warning=FALSE}
 base.de.datos %>% 
   filter(!is.na(Age)) %>% 
   ggplot(aes(x = Age)) +
@@ -284,7 +284,7 @@ base.de.datos %>%
 
 Boxplot de Edades con respecto al Efecto de Mutación
 
-```{r}
+```{r, warning=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Effect)) %>%
   ggplot(aes(x = Effect, y = Age)) +
@@ -298,7 +298,7 @@ base.de.datos %>%
 
 Boxplot de Edades con respecto a la Clase de Mutación
 
-```{r}
+```{r, warning=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Class)) %>%
   ggplot(aes(x = Class, y = Age)) +
@@ -313,7 +313,7 @@ base.de.datos %>%
 
 Boxplot de Edades y Sexo
 
-```{r}
+```{r, warning=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Sex)) %>%
   mutate(Sexo = ifelse(Sex == "F", "Femenino", "Masculino")) %>%
@@ -329,7 +329,8 @@ base.de.datos %>%
 ```
 
 Histogramas de correlación de edad y conteo
-```{r}
+
+```{r, warning=FALSE}
 cor.data.diagnostico %>% 
   ggplot(aes(x = Age_at_diagnosis)) +
   geom_histogram(color = "black", fill = "lightblue", bins = 30) +
@@ -349,7 +350,7 @@ cor.data %>%
 
 Scatterplots de correlación de edad y conteo
 
-```{r}
+```{r, warning=FALSE}
 cor.data %>%
   ggplot(aes(x = Age, y = TCGA_ICGC_GENIE_count)) +
   geom_point(alpha = 0.6, color = "steelblue") +
@@ -373,7 +374,7 @@ cor.data.diagnostico %>%
 
 Aunque la hipótesis H2 plantea una relación entre el tipo de mutación (MUT_ID) y la edad al diagnóstico, en esta sección se analiza una variable sustituta relacionada con la frecuencia mutacional (TCGA_ICGC_GENIE_count) para evaluar si existe una asociación entre la edad y la presencia o cantidad de mutaciones reportadas por los consorcios internacionales. Este análisis permite explorar parcialmente la hipótesis H2, identificando si la edad podría estar relacionada con la carga mutacional observada en los pacientes.
 
-```{r}
+```{r, warning=FALSE}
 #Datos a utilizar para el proceso de correlación
 
 cor.data.diagnostico <- base.de.datos.filtrada %>%
@@ -414,7 +415,7 @@ Estos patrones apoyan parcialmente la hipótesis de que las alteraciones del gen
 
 Ahora, se procede a una prueba de normalidad por medio del método Shapiro-Wilk.
 
-```{r}
+```{r, warning=FALSE}
 shapiro.test(cor.data$Age)
 shapiro.test(cor.data.diagnostico$Age_at_diagnosis)
 shapiro.test(cor.data$TCGA_ICGC_GENIE_count)
