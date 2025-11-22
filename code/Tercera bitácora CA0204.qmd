@@ -328,6 +328,127 @@ base.de.datos %>%
 
 ```
 
+Histogramas de correlación de edad y conteo
+```{r}
+cor.data.diagnostico %>% 
+  ggplot(aes(x = Age_at_diagnosis)) +
+  geom_histogram(color = "black", fill = "lightblue", bins = 30) +
+  labs(title = "Histograma de edades al diagnóstico",
+       x = "Edad",
+       y = "Frecuencia") +
+  theme_minimal()
+
+cor.data %>% 
+  ggplot(aes(x = Age)) +
+  geom_histogram(color = "black", fill = "lightblue", bins = 30) +
+  labs(title = "Histograma de edades (alto porcentaje de NA)",
+       x = "Edad",
+       y = "Frecuencia") +
+  theme_minimal()
+```
+
+Scatterplots de correlación de edad y conteo
+
+```{r}
+cor.data %>%
+  ggplot(aes(x = Age, y = TCGA_ICGC_GENIE_count)) +
+  geom_point(alpha = 0.6, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Edad vs Conteo TCGA/ICGC/GENIE",
+       x = "Edad",
+       y = "Conteo") +
+  theme_minimal()
+
+cor.data.diagnostico %>%
+  ggplot(aes(x = Age_at_diagnosis, y = TCGA_ICGC_GENIE_count)) +
+  geom_point(alpha = 0.6, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Edad al diagnóstico vs Conteo TCGA/ICGC/GENIE",
+       x = "Edad al diagnóstico",
+       y = "Conteo") +
+  theme_minimal()
+```
+
+#Discusión y análisis de resultados
+
+Aunque la hipótesis H2 plantea una relación entre el tipo de mutación (MUT_ID) y la edad al diagnóstico, en esta sección se analiza una variable sustituta relacionada con la frecuencia mutacional (TCGA_ICGC_GENIE_count) para evaluar si existe una asociación entre la edad y la presencia o cantidad de mutaciones reportadas por los consorcios internacionales. Este análisis permite explorar parcialmente la hipótesis H2, identificando si la edad podría estar relacionada con la carga mutacional observada en los pacientes.
+
+```{r}
+#Datos a utilizar para el proceso de correlación
+
+cor.data.diagnostico <- base.de.datos.filtrada %>%
+  filter(!is.na(Age_at_diagnosis), !is.na(TCGA_ICGC_GENIE_count)) %>%
+  select(Age_at_diagnosis, TCGA_ICGC_GENIE_count)
+
+cor.data <- base.de.datos.filtrada %>%
+  filter(!is.na(Age), !is.na(TCGA_ICGC_GENIE_count)) %>%
+  select(Age, TCGA_ICGC_GENIE_count)
+```
+
+
+Respecto a los histogramas (Figuras 5 y 6) 
+
+## *Histograma de edades al diagnóstico*
+
+El primer histograma muestra que la distribución de la edad al diagnóstico es asimétrica hacia la derecha (sesgo positivo). La mayoría de los casos se concentran entre los 25 y 40 años, con un pico marcado alrededor de los 30 años, lo que indica que este grupo etario es el más común en los registros disponibles.
+
+A partir de los 45–50 años la frecuencia comienza a disminuir de manera notable, y existe una cola extendida hacia edades más avanzadas (hasta alrededor de 75–80 años), pero con muy pocos casos. Esta forma confirma que la distribución no es normal y que la base contiene una gran proporción de diagnósticos en edades relativamente jóvenes.
+
+## *Histograma de edades (dataset con alto porcentaje de NA)*
+
+El segundo histograma, aunque basado en un subconjunto más pequeño debido a la presencia de muchos valores NA, presenta una forma muy similar: un claro sesgo hacia la derecha y mayor concentración de casos entre los 25 y 40 años, con un máximo alrededor de los 30 años.
+
+La menor cantidad total de observaciones hace que las barras sean más variables y que la forma no se vea tan suave, pero la tendencia general se mantiene: hay pocos casos en edades muy jóvenes (<20) y muy pocos casos por encima de los 60 años.
+
+Ambos histogramas reflejan una tendencia consistente:
+
+- La mayoría de los diagnósticos se dan en personas entre 25 y 40 años.
+
+- La distribución presenta una cola hacia la derecha, indicando sesgo positivo.
+
+- No se observa una distribución normal.
+
+- La presencia de NA afecta la claridad del segundo histograma, pero no modifica la tendencia central.
+
+Estos patrones apoyan parcialmente la hipótesis de que las alteraciones del gen TP53 en tejido mamario tienden a concentrarse en grupos etarios relativamente jóvenes.
+
+Ahora, se procede a una prueba de normalidad por medio del método Shapiro-Wilk.
+
+```{r}
+shapiro.test(cor.data$Age)
+shapiro.test(cor.data.diagnostico$Age_at_diagnosis)
+shapiro.test(cor.data$TCGA_ICGC_GENIE_count)
+```
+
+Se evaluó la normalidad de las variables Edad (Age), Edad al diagnóstico (Age_at_diagnosis) y el conteo de casos (TCGA_ICGC_GENIE_count) mediante la prueba de Shapiro–Wilk. En los tres casos se obtuvo un valor p extremadamente pequeño (p < 0.05), indicando que ninguna de las variables sigue una distribución normal (Age: W = 0.929, p = 1.33×10⁻⁹; Age_at_diagnosis: W = 0.916, p < 2.2×10⁻¹⁶; TCGA_ICGC_GENIE_count: W = 0.653, p < 2.2×10⁻¹⁶).
+
+Dado que las variables no cumplen el supuesto de normalidad —y considerando que el conteo es una variable discreta— se utilizó el coeficiente de correlación Spearman (ρ) para analizar la relación entre la edad y el conteo de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE.
+
+```{r, warning=FALSE}
+cor.test(cor.data$Age, cor.data$TCGA_ICGC_GENIE_count, 
+         method = "spearman")
+
+cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_GENIE_count, 
+         method = "spearman")
+```
+
+Debido a que ninguna de las variables analizadas siguió una distribución normal según la prueba de Shapiro–Wilk (p < 0.05 en todos los casos), se utilizó el coeficiente de correlación de Spearman (ρ) para evaluar la relación entre la edad y el número de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE.
+
+En primer lugar, la correlación entre la edad (Age) y el conteo combinado de mutaciones (TCGA_ICGC_GENIE_count) no fue significativa (ρ = 0.073, p = 0.246). El valor de ρ, cercano a cero, indica que no existe relación entre la edad del paciente y la cantidad de mutaciones reportadas por los consorcios. Por lo tanto, la edad no parece influir en la frecuencia de mutaciones observadas en este grupo de individuos.
+
+Por otro lado, se evaluó la correlación entre la edad al diagnóstico (Age_at_diagnosis) y el mismo conteo. En este caso se obtuvo un coeficiente negativo muy pequeño (ρ = –0.077) con un valor p significativo (p = 0.011). Aunque la asociación es estadísticamente significativa, la magnitud del coeficiente es extremadamente baja, lo que indica que la relación, aunque detectable debido al tamaño de la muestra, carece de relevancia práctica. En términos reales, la edad al diagnóstico apenas se relaciona con el número de mutaciones reportadas.
+
+En conjunto, ambos análisis sugieren que ni la edad ni la edad al diagnóstico se asocian de manera consistente o relevante con el conteo de mutaciones TP53 provenientes de los consorcios TCGA, ICGC y GENIE.
+
+Gráficamente, se puede observar mediante Figura 7 y Figura 8.
+
+## Interpretación de los gráficos de dispersión (Scatterplots)
+
+Los gráficos de dispersión (Figura 7 y 8) muestran visualmente la relación entre la edad y el conteo de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE. En el caso de la variable Age, los puntos se encuentran ampliamente dispersos y la línea de tendencia lineal es casi horizontal, lo que confirma la ausencia de una relación clara entre ambas variables.
+
+Para la variable Age_at_diagnosis, aunque la línea de tendencia presenta una leve pendiente negativa, la dispersión sigue siendo elevada, indicando que la relación es muy débil. Esto coincide con el valor de ρ obtenido en la correlación, que muestra una asociación estadísticamente significativa pero prácticamente irrelevante.
+
+
 # Conclusiones
 
 ## Primera hipótesis 
@@ -351,3 +472,20 @@ observaciones, casi el doble que la mutación en el segundo lugar, la
 cual tiene el identificador 2143 con 180 observaciones, que representa
 un 3.872%, y la tercer mutación con mayor frecuencia fue el 3236 con 160
 observaciones, representando un 3.442% del total de mutaciones.
+
+## Conclusión del análisis de correlación (Segunda hipótesis de manera parcial)
+
+El análisis de correlación realizado revela que la edad de los individuos no se asocia de manera relevante con el número de mutaciones del gen TP53 reportadas por los consorcios TCGA, ICGC y GENIE. Tanto los resultados numéricos como los gráficos de dispersión muestran que las variables presentan una relación prácticamente nula.
+
+Por otra parte, la edad al diagnóstico mostró una correlación estadísticamente significativa con el conteo de mutaciones (p = 0.011); sin embargo, el coeficiente obtenido (ρ = –0.077) indica que esta asociación es extremadamente débil y carece de importancia práctica. Esto sugiere que la edad al diagnóstico ejerce un efecto mínimo o inexistente en la cantidad de mutaciones registradas.
+
+En conjunto, estos resultados permiten concluir que la variabilidad en el conteo de mutaciones del gen TP53 no se explica por la edad ni por la edad al diagnóstico, lo que implica que otros factores clínicos, biológicos o ambientales podrían tener un papel más determinante en la frecuencia mutacional.
+
+# Respecto a hipótesis
+
+A partir del análisis realizado, no se encontró evidencia sólida que respalde la hipótesis de que la edad al diagnóstico tiene una relación importante con la carga mutacional asociada a TP53. La correlación entre Age_at_diagnosis y el conteo combinado de mutaciones provenientes de los consorcios TCGA, ICGC y GENIE fue estadísticamente significativa (ρ = –0.077, p = 0.011); sin embargo, la magnitud del coeficiente es extremadamente baja, lo que indica que la relación, aunque detectable debido al tamaño de la muestra, no posee relevancia práctica.
+
+Además, la correlación entre la edad general (Age) y el conteo mutacional tampoco mostró significancia estadística (ρ = 0.073, p = 0.246), reforzando la idea de que la edad no explica la variación en la cantidad de mutaciones registradas.
+
+Por lo tanto, con base en estos resultados, la hipótesis H2 no puede considerarse apoyada, al menos desde la perspectiva del análisis correlacional asignado. Los datos sugieren que la edad al diagnóstico no está asociada de manera relevante con la frecuencia de mutaciones observadas, por lo que otros factores biológicos, genéticos o clínicos podrían ser más determinantes en la variabilidad mutacional.
+
