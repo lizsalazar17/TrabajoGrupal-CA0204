@@ -496,7 +496,7 @@ En este gráfico se presentan diferencias de rangos promedio entre pares de muta
 
 El eje vertical permite observar que mutación presenta un diagnóstico mayor respecto a la mutación con la que se compara, si la diferencia es positiva, el primera mutación del par es la que tiende a asociarse con una edad de diagnóstico tardío. Si la diferencia es negativa, el primer par es, en cambio, el que se relaciona con una edad temprana de diagnóstico. 
 
-Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, y las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas.
+Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, al compararse con las mutaciones 3294, 3297, 2705 y 2143. Además, se encontró que las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas al compararse con 2242.
 
 Respecto a los histogramas (Figuras 5 y 6) 
 
@@ -584,6 +584,14 @@ observaciones, casi el doble que la mutación en el segundo lugar, la
 cual tiene el identificador 2143 con 180 observaciones, que representa
 un 3.872%, y la tercer mutación con mayor frecuencia fue el 3236 con 160
 observaciones, representando un 3.442% del total de mutaciones.
+
+## Conclusión del análisis inferencial (Segunda hipótesis)
+
+El análisis comparativo hecho por el método Kruskal-Wallis revela que que existen cierto tipos de mutaciones que se asocian a edades de diagnóstico tempranas y tardías, es decir, exisste una diferencia significativa entre algunos tipos de mutación del gen TP53. Esto indica que la distribucón por edad no es homogénea entre las mutaciones más frecuentes del gen. 
+
+Tanto el análisis post-hoc que se usó luego de determinar el valor p de comparación general entre grupos y el gráfico forest plot, determinaron cuáles son las mutacioenes que tienden a diagnosticarse a una edad tardía respecto a los demás grupo, como lo son las mutaciones 4585 y 2242. También, revelaron las que teneden a asociarse a edades más tempranas que son las mutaciones 2705, 3297 y 3294. 
+
+Estos resultados respaldan en parte la hipótesis 2, que plantea una relación significativa entre la edad al diagnóstico y el tipo de mutación del TP53, sin embargo, esta relación no está presente en todos los tipos de mutación del gen, por lo tanto, se necesita otra evidencia para respaldar totalmente esta hipótesis, considerando estudiar las mutaciones específicas que mostraron tendencias importantes.
 
 ## Conclusión del análisis de correlación (Segunda hipótesis de manera parcial)
 
