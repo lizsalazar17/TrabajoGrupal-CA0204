@@ -116,8 +116,9 @@ mutaciones en adultos jóvenes y adultos medios.
 -   H2: Existe una relación significativa entre el tipo de mutación
     (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
 
--   H3: Las regiones con mayor representación de casos presentan también
-    mayor diversidad mutacional del gen TP53.
+-   H3: Los rangos etarios del escenario costarricense que poseen una
+    mayor acumulación de casos, también presentan una mayor diversidad
+    mutacional del gen TP53.
 
 (Agregar fuentes)
 
@@ -242,7 +243,7 @@ permitirá contextualizar los resultados globales en el ámbito nacional,
 y formular hipótesis sobre la posible prevalencia de mutaciones
 similares en el país.
 
-# Datos descriptivos
+# Datos descriptivos de la base internacional
 
 Frecuencias de MUT_ID
 
@@ -495,7 +496,7 @@ ggplot(df.sexos, aes(x=Sexo, y=Cantidad_casos))+
   geom_text(aes(label = Cantidad_casos), 
             vjust = -0.1, color = "blue3", size = 5, fontface = "bold")
 
-ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_sexos.png", width = 8, height = 6, dpi = 900)
+#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_sexos.png", width = 8, height = 6, dpi = 900)
   
 ```
 
@@ -590,6 +591,64 @@ df.kruskal <- df.kruskal %>%
          Signif = ifelse(pval < 0.05, "Sí", "No"))
 
 ```
+
+## Incidencia del cáncer de mama en la población costarricense durante el año 2022
+
+### Nivel general 
+
+Durante el año 2022 la población costarricense presentó una totalidad de
+1232 casos de cáncer de mama, lo anterior con una particularidad: a
+partir del gráfico de la distribución de casos según el sexo para Costa
+Rica, se determina la existencia de una brecha considerable en la
+incidencia del cáncer de mama en las personas de sexo masculino respecto
+a las personas de sexo femenino; los masculinos presentaron únicamente
+seis casos, mientras que las féminas acumularon una cantidad de 1226
+casos. El fenómeno descrito no corresponde a un hecho aislado, tal como
+menciona Soto Flores (2015) " el cáncer de mama es la causa líder de
+muerte en mujeres de países en vías de desarrollo y la segunda causa de
+muerte en países desarrollados, siendo segundo al cáncer de pulmón" (p.
+799). Asimismo, este autor se refiere al escenario nacional: "dentro de
+la población costarricense el cáncer de mama es la causa más común de
+mortalidad en mujeres por neoplasia maligna" (p. 800).
+
+Del párrafo precedente se resalta un hecho importante, el cual consiste
+en que la mayoría de diagnósticos de cáncer de mama en el 2022 se
+presentaron en el sexo femenino, con un 99.51% del total.
+
+### Sexo masculino
+
+Como se mencionó antes, de los 1232 casos solo seis fueron
+diagnosticados en sujetos de sexo masculino, equivalente a un 0.49% del
+total. En lo que respecta a la distribución de los casos, considerando
+el gráfico que describe dicho aspecto de acuerdo a los rangos etarios en
+el sexo masculino, se determina que la mayoría de casos se situaron en
+la categoría que comprende de los 65 a los 69 años, con una acumulación
+de dos elementos. Además, es importante destacar la inexistencia de
+diágnosticos de cáncer de mama en masculinos menores a 45 años, a la vez
+que se visualiza una concentración de los casos a partir de los 60 años.
+
+### Sexo femenino 
+
+En el caso del sexo femenino, se destaca la inexistencia de diagnósticos
+en personas menores a 20 años, lo cual representa un rango mucho menor
+en comparación al sexo masculino. Asimismo, la agrupación de edades que
+acumula la mayor cantidad de casos corresponde a aquella que comprende
+de los 55 a los 59 años con un total de 168. La variación de esta cifra
+respecto a otras agrupaciones es muy pequeña: el grupo a partir de los
+75 años posee una cantidad de 161 elementos, de igual manera, el rango
+de edad que va de los 65 a los 69 años contiene 156 elementos.
+
+Por otro lado, se visualiza una concentración de los casos a partir de
+los 40 años, donde las cifras acumuladas en los rangos etarios son
+mayores a 100. Previo a los 40 años, a excepción del rango que va de los
+35 a los 39 años, todos acumulan cantidades menores a 20 elementos. En
+particular, se destaca que la menor cantidad de diagnósticos se sitúa en
+el rango etario que comprende de los 20 a los 24 años, con apenas dos
+elementos.
+
+## Relación del escenario costarricense en el 2022 y la expresión mutada del gen TP53
+
+## 
 
 # Interpretación de Forest plot (Gráfico 11)
 
@@ -821,3 +880,16 @@ correlacional asignado. Los datos sugieren que la edad al diagnóstico no
 está asociada de manera relevante con la frecuencia de mutaciones
 observadas, por lo que otros factores biológicos, genéticos o clínicos
 podrían ser más determinantes en la variabilidad mutacional.
+
+## Tercera hipótesis 
+
+-   H3: Los rangos etarios del escenario costarricense que poseen una
+    mayor acumulación de casos, también presentan una mayor diversidad
+    mutacional del gen TP53.
+
+¿Qué grupo etario en Costa Rica muestra mayor incidencia?
+
+¿Es consistente con los patrones del TP53 Dataset?
+
+¿Apoya la hipótesis de que adultos jóvenes/adultos medios están más en
+riesgo?
