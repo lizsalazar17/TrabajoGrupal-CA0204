@@ -567,7 +567,7 @@ kruskal.test(Age_at_diagnosis ~ MUT_ID, data = base.infer.2)
 dunn <- DunnTest(Age_at_diagnosis ~ MUT_ID, data = base.infer.2, method="bonferroni")
 
 df.kruskal <- as.data.frame(dunn[[1]])
-df.kruskal$Comparison <- rownames(df)
+df.kruskal$Comparison <- rownames(df.kruskal)
 rownames(df.kruskal) <- NULL
 
 df.kruskal <- df.kruskal %>% 
