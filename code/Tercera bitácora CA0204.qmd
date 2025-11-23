@@ -24,47 +24,6 @@ editor:
 
 \newpage
 
-# Librerías
-
-```{r, echo=FALSE, warning=FALSE}
-library(readr)
-
-library(dplyr)
-
-library(ggplot2)
-
-library(DescTools)
-
-library(tidyr)
-
-library(readxl)
-
-```
-
-# Bases de datos
-
-```{r, warning=FALSE}
-setwd("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204")
-
-url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
-
-temp.file <- tempfile(fileext = ".csv")
-
-download.file(url, destfile = temp.file, mode = "wb")
-
-base.de.datos <- read_csv(temp.file)
-
-base.datos.cr.masculino <- read_excel("data/base_cr.xlsx")
-
-base.datos.cr.femenino <- read_excel("data/base_cr.xlsx", 2)
-
-base.datos.cr.femenino.provincias <- read_excel("data/base_cr.xlsx", 3)
-   
-View(base.datos.cr.femenino)
-View(base.datos.cr.femenino.provincias)
-View(base.datos.cr.masculino)
-```
-
 # Fundamentación del proyecto
 
 ## Pregunta de investigación
@@ -242,6 +201,47 @@ debido a la diferencia en el tipo de información, este ejercicio
 permitirá contextualizar los resultados globales en el ámbito nacional,
 y formular hipótesis sobre la posible prevalencia de mutaciones
 similares en el país.
+
+# Librerías
+
+```{r, echo=FALSE, warning=FALSE}
+library(readr)
+
+library(dplyr)
+
+library(ggplot2)
+
+library(DescTools)
+
+library(tidyr)
+
+library(readxl)
+
+```
+
+# Bases de datos
+
+```{r, warning=FALSE}
+setwd("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204")
+
+url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
+
+temp.file <- tempfile(fileext = ".csv")
+
+download.file(url, destfile = temp.file, mode = "wb")
+
+base.de.datos <- read_csv(temp.file)
+
+base.datos.cr.masculino <- read_excel("data/base_cr.xlsx")
+
+base.datos.cr.femenino <- read_excel("data/base_cr.xlsx", 2)
+
+base.datos.cr.femenino.provincias <- read_excel("data/base_cr.xlsx", 3)
+   
+View(base.datos.cr.femenino)
+View(base.datos.cr.femenino.provincias)
+View(base.datos.cr.masculino)
+```
 
 # Datos descriptivos de la base internacional
 
@@ -793,6 +793,9 @@ significativa pero prácticamente irrelevante.
 # Conclusiones
 
 ## Primera hipótesis
+
+-   H1: Las mutaciones más frecuentes del gen TP53 se concentran en
+    individuos diagnosticados entre los 30 y 50 años.
 
 Nuestra primera hipósis hipótesis fue que las edades estaban
 concentradas en un rango entre los 30 y 50 años, basados en los
