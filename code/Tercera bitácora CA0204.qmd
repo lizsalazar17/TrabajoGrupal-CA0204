@@ -804,7 +804,7 @@ del cáncer estudiado fueron: de los 55 a los 59 años, a partir de los 75
 años y de los 65 a los 69 años.
 
 Se analizará la relación del boxplot que detalla la relación entre las
-diez principales mutaciones del gen TP53 y la edad al diagnóstico con
+diez principales mutaciones del gen TP53 y la edad al diagnóstico, con
 los tres rangos etarios de mayor incidencia en el escenario
 costarricense durante el año 2022.
 
@@ -812,7 +812,7 @@ costarricense durante el año 2022.
 
 En primera instancia, es preciso destacar que para todas las mutaciones
 se cumple
-que el 50% de los datos centrales si sitúan por debajo de los 50 años,
+que el 50% de los datos centrales se sitúan por debajo de los 50 años,
 además,
 se presentan casos particulares en los cuales los bigotes de las cajas
 están por debajo de esa misma edad o apenas la superan, tal es el
@@ -964,9 +964,38 @@ podrían ser más determinantes en la variabilidad mutacional.
     mayor acumulación de casos, también presentan una mayor diversidad
     mutacional del gen TP53.
 
-¿Qué grupo etario en Costa Rica muestra mayor incidencia?
+El análisis del escenario costarricense durante el año 2022 muestra que
+el sector etario con mayor incidencia de cáncer de mama, corresponde al
+rango que va de los 55 a los 59 años. En segundo lugar se encuentra las
+edades comprendidas a partir de los 75 años y en tercer lugar se sitúa
+el grupo de las edades de los 65 a los 69 años. Además, es preciso
+destacar la existencia de una considerable brecha entre la cantidad de
+diagnósticos reportados en el sexo masculino respecto al sexo femenino:
+alrededor del 99.51% del total están asociados al sexo femenino.
 
-¿Es consistente con los patrones del TP53 Dataset?
+Al contrastar los resultados obtenidos en el escenario costarricense
+durante el año 2022, con el comportamiento de expresión observado en las
+diez mutaciones más comunes del gen TP53, se identifican ciertas
+variaciones de acuerdo al rango etario bajo estudio, sin embargo, se
+determina de forma general que las expresiones mutacionales del gen TP53
+no suelen presentarse principalmente o de manera típica dentro de los
+rangos etarios en los cuales Costa Rica presenta la mayor incidencia. El
+análisis del boxplot que detalla la relación entre las diez principales
+mutaciones del gen TP53 y la edad al diagnóstico, evidencia que para la
+totalidad de las diez mutaciones principales del gen, se cumple que el
+50% de los datos centrales se sitúan por debajo de los 50 años,
+asimismo, son escasas las ocasiones en las que los bigotes alcanzan los
+rangos etarios de mayor incidencia para el escenario nacional durante el
+2022. Así, la presencia de las mutaciones en los rangos especificados no
+es significativa y en su mayoría representa valores normales extremos o
+valores atípicos. En particular, en los grupos de 65 a 69 años y de 75
+años en adelante, las mutaciones prácticamente tienden a no expresarse,
+a excepción de ciertos valores atípicos.
 
-¿Apoya la hipótesis de que adultos jóvenes/adultos medios están más en
-riesgo?
+En conjunto, estos hallazgos sugieren que no existe una fuerte
+concordancia entre las agrupaciones etarias que acumularon la mayor
+incidencia del cáncer de mama en Costa Rica y la distribución de las
+edades asociadas a las mutaciones más comunes del gen TP53: las
+mutaciones tienden a expresarse con mayor frecuencia en adultos jóvenes
+y adultos de mediana edad, mientras que en el contexto costarricense los
+casos se concentran en edades más avanzadas.
