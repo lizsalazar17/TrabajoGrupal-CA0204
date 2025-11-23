@@ -153,13 +153,14 @@ library(tidyr)
 
 library(readxl)
 
+library(here)
+
+
 ```
 
 # Bases de datos
 
 ```{r, warning=FALSE}
-#setwd("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204")
-
 url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
 
 temp.file <- tempfile(fileext = ".csv")
@@ -168,11 +169,11 @@ download.file(url, destfile = temp.file, mode = "wb")
 
 base.de.datos <- read_csv(temp.file)
 
-base.datos.cr.masculino <- read_excel("data/base_cr.xlsx")
+base.datos.cr.masculino <- read_excel(here("data", "base_cr.xlsx"))
 
-base.datos.cr.femenino <- read_excel("data/base_cr.xlsx", 2)
+base.datos.cr.femenino <- read_excel(here("data", "base_cr.xlsx"), 2)
 
-base.datos.cr.femenino.provincias <- read_excel("data/base_cr.xlsx", 3)
+base.datos.cr.femenino.provincias <- read_excel(here("data", "base_cr.xlsx"), 3)
    
 View(base.datos.cr.femenino)
 View(base.datos.cr.femenino.provincias)
@@ -509,7 +510,7 @@ kruskal.test(Age_at_diagnosis ~ MUT_ID, data = base.infer.2)
 dunn <- DunnTest(Age_at_diagnosis ~ MUT_ID, data = base.infer.2, method="bonferroni")
 
 df.kruskal <- as.data.frame(dunn[[1]])
-df.kruskal$Comparison <- rownames(df)
+df.kruskal$Comparison <- rownames(df.kruskal)
 rownames(df.kruskal) <- NULL
 
 df.kruskal <- df.kruskal %>% 
@@ -536,7 +537,7 @@ cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_G
 
 \newpage
 
-# Análisis de los hallazgos 
+# Análisis de los hallazgos
 
 # Discusión y resultados
 
@@ -754,18 +755,16 @@ costarricense durante el año 2022.
 ### Rango etario con mayor incidencia: de los 55 a los 59 años
 
 En primera instancia, es preciso destacar que para todas las mutaciones
-se cumple
-que el 50% de los datos centrales se sitúan por debajo de los 50 años,
-además,
-se presentan casos particulares en los cuales los bigotes de las cajas
-están por debajo de esa misma edad o apenas la superan, tal es el
-escenario para las mutaciones de identificador 3297, 2143, 3294, 3737 y
-3879. En particular, para la mutación con identificador 1429, se
-identifica la presencia de valores atípicos en edades que comprenden o
-son cercanas al rango etario de mayor incidencia en el país. Es
-importante aclarar que cuando se menciona que las mutaciones poseen
-valores atípicos en ciertas edades, se refiere a que la expresión de
-dicha mutación no es común para esas edades.
+se cumple que el 50% de los datos centrales se sitúan por debajo de los
+50 años, además, se presentan casos particulares en los cuales los
+bigotes de las cajas están por debajo de esa misma edad o apenas la
+superan, tal es el escenario para las mutaciones de identificador 3297,
+2143, 3294, 3737 y 3879. En particular, para la mutación con
+identificador 1429, se identifica la presencia de valores atípicos en
+edades que comprenden o son cercanas al rango etario de mayor incidencia
+en el país. Es importante aclarar que cuando se menciona que las
+mutaciones poseen valores atípicos en ciertas edades, se refiere a que
+la expresión de dicha mutación no es común para esas edades.
 
 Por otra parte, la extensión de los bigotes de las mutaciones 2242 y
 4585 comprenden el rango etario que va de los 55 a los 59 años: si bien,
@@ -787,7 +786,7 @@ la expresión de las mutaciones sea común para las edades comprendidas en
 el rango etario, en su lugar sugiere que estas no se presentan del todo,
 ni siquiera como valor atípico.
 
-### Rango etario con la tercer mayor incidencia: de los 65 a los 69 años 
+### Rango etario con la tercer mayor incidencia: de los 65 a los 69 años
 
 Se identifican dos aspectos principales. En primer lugar, la presencia
 de valores atípicos situados en el rango etario bajo estudio para tres
@@ -945,7 +944,7 @@ casos se concentran en edades más avanzadas.
 
 \newpage
 
-# Referencias 
+# Referencias
 
 Agresti, A. (2018). *Statistical Methods for the Social Sciences* (5th ed.). Pearson.
 <https://www.pearson.com/en-us/subject-catalog/p/statistical-methods-for-the-social-sciences/P200000006673/9780134507101>
