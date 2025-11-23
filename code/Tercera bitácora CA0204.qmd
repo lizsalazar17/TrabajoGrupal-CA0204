@@ -883,7 +883,7 @@ cual tiene el identificador 2143 con 180 observaciones, que representa
 un 3.872%, y la tercer mutación con mayor frecuencia fue el 3236 con 160
 observaciones, representando un 3.442% del total de mutaciones.
 
-##Segunda hipótesis
+## Segunda hipótesis
 
 -   $H_2$: Existe una relación significativa entre el tipo de mutación
     (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
