@@ -218,7 +218,7 @@ library(readxl)
 # Bases de datos
 
 ```{r, warning=FALSE}
-setwd("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204")
+#setwd("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204")
 
 url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
 
