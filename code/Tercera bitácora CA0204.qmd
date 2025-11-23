@@ -13,16 +13,19 @@ format:
     margin-right: "2.54cm"
     margin-top: "2.54cm"
     margin-bottom: "2.54cm"
+    include-in-header: header.tex 
     #include-before-body: Portada.qmd
     header-includes:
       - \usepackage{indentfirst}
       - \setlength{\parindent}{1.27cm}
+
 editor: 
   markdown: 
     wrap: 72
 ---
 
 \newpage
+
 
 Link al repositorio: <https://github.com/lizsalazar17/TrabajoGrupal-CA0204.git>
 
@@ -124,13 +127,13 @@ Antes de aplicar los procedimientos inferenciales, se realizará una limpieza y 
 
 De este modo, cada método estadístico aportará evidencia específica para responder la pregunta de investigación:
 
-Los análisis descriptivos permitirán conocer cómo se distribuyen la edad y las mutaciones del gen TP53.
+- Los análisis descriptivos permitirán conocer cómo se distribuyen la edad y las mutaciones del gen TP53.
 
-Las pruebas de comparación (ANOVA/Kruskal–Wallis) identificarán si existen diferencias significativas en la edad de diagnóstico según el tipo de mutación.
+- Las pruebas de comparación (ANOVA/Kruskal–Wallis) identificarán si existen diferencias significativas en la edad de diagnóstico según el tipo de mutación.
 
-Los análisis de correlación mostrarán si existe una relación entre la edad y la frecuencia de mutaciones reportadas.
+- Los análisis de correlación mostrarán si existe una relación entre la edad y la frecuencia de mutaciones reportadas.
 
-Finalmente, el análisis de frecuencias permitirá observar la incidencia relativa de las mutaciones en cada grupo etario.
+- Finalmente, el análisis de frecuencias permitirá observar la incidencia relativa de las mutaciones en cada grupo etario.
 
 Posteriormente, se llevará a cabo un análisis comparativo entre regiones geográficas, tomando como base la variable Country de la base internacional. Se describirá la distribución de mutaciones del gen TP53 en diferentes países y regiones, con especial énfasis en América Latina. Esta información se contrastará cualitativamente con la base de datos del Ministerio de Salud de Costa Rica, para explorar si los patrones internacionales guardan relación con las tasas de incidencia y mortalidad por cáncer de mama en la población costarricense. Aunque no se establecerán correlaciones estadísticas directas entre ambas bases debido a la diferencia en el tipo de información, este ejercicio permitirá contextualizar los resultados globales en el ámbito nacional, y formular hipótesis sobre la posible prevalencia de mutaciones similares en el país.
 
@@ -140,7 +143,7 @@ Posteriormente, se llevará a cabo un análisis comparativo entre regiones geogr
 
 # Librerías
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 library(readr)
 
 library(dplyr)
@@ -160,7 +163,7 @@ library(here)
 
 # Bases de datos
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
 
 temp.file <- tempfile(fileext = ".csv")
@@ -191,7 +194,7 @@ base.de.datos.filtrada <- base.de.datos %>%
 
 Frecuencias de MUT_ID
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 frecuencias.mutaciones <- base.de.datos %>%
   group_by(MUT_ID) %>% 
   summarise(
@@ -203,7 +206,7 @@ frecuencias.mutaciones <- base.de.datos %>%
 
 Las diez mutaciones con mayor frecuencia
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 top.mutaciones <- frecuencias.mutaciones %>% 
   head(10)
 ```
@@ -229,7 +232,7 @@ Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)` IQR:
 
 Histograma sobre la distribución de edades
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 base.de.datos %>% 
   filter(!is.na(Age)) %>% 
   ggplot(aes(x = Age)) +
@@ -244,7 +247,7 @@ base.de.datos %>%
 
 Boxplot de Edades con respecto al Efecto de Mutación
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Effect)) %>%
   ggplot(aes(x = Effect, y = Age)) +
@@ -258,7 +261,7 @@ base.de.datos %>%
 
 Boxplot de Edades con respecto a la Clase de Mutación
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Class)) %>%
   ggplot(aes(x = Class, y = Age)) +
@@ -273,7 +276,7 @@ base.de.datos %>%
 
 Boxplot de Edades y Sexo
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 base.de.datos %>%
   filter(!is.na(Age), !is.na(Sex)) %>%
   mutate(Sexo = ifelse(Sex == "F", "Femenino", "Masculino")) %>%
@@ -292,7 +295,7 @@ Histogramas y scatterplots de la correlación entre la edad y edad de
 diagnóstico y cantidad de casos reportados por consorcios
 internacionales
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 
 #Datos a utilizar para el proceso de correlación
 
@@ -324,7 +327,25 @@ cor.data %>%
   theme_minimal()
 
 #ggsave("../res/Histograma_edad.png", width = 8, height = 6, dpi = 900)
+```
+Prueba de normalidad de la correlación de la edad y edad de diágnostico
+y el conteo de casos de cáncer por consorcios internacionales utilizando
+el Shapiro-Wilk test.
 
+```{r, warning=FALSE, message=FALSE}
+shapiro.test(cor.data$Age)
+shapiro.test(cor.data.diagnostico$Age_at_diagnosis)
+shapiro.test(cor.data$TCGA_ICGC_GENIE_count)
+
+cor.test(cor.data$Age, cor.data$TCGA_ICGC_GENIE_count, 
+         method = "spearman")
+
+cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_GENIE_count, 
+         method = "spearman")
+```
+
+Correlación utilizando método spearman
+```{r, warning=FALSE, message=FALSE}
 #Gráficos de correlación
 cor.data %>%
   ggplot(aes(x = Age, y = TCGA_ICGC_GENIE_count)) +
@@ -348,123 +369,9 @@ cor.data.diagnostico %>%
 #ggsave("../res/Correlación_edad_diag.pdf", width = 8, height = 6, dpi = 900)
 ```
 
-Boxplot de Edad al diagnóstico respecto a las mutaciones más frecuentes
-
-```{r}
-ggplot(base.infer.2, aes(x = as.factor(MUT_ID), y = Age_at_diagnosis)) +
-  geom_boxplot(fill = "pink", alpha = 0.7) +
-  theme_minimal() +
-  labs(title = "Edad al diagnóstico según Mutación (Top 10)",
-       x = "MUT_ID",
-       y = "Edad al diagnóstico")
-```
-
-QQ-plots de Edad al diagnóstico con respecto a las mutaciones más
-frecuentes
-
-```{r}
-base.infer.2 %>% 
-  mutate(MUT_ID = as.factor(MUT_ID)) %>%
-  ggplot(aes(sample = Age_at_diagnosis)) +
-  stat_qq() +
-  stat_qq_line() +
-  facet_wrap(~ MUT_ID, scales = "free") +
-  theme_minimal() +
-  labs(title = "QQ-Plots de Age_at_diagnosis por Mutación",
-       y = "Cuantiles observados",
-       x = "Cuantiles teóricos normales")
-
-```
-
-Forest plot: diferencia de rangos y comparación entre mutaciones
-
-```{r}
-ggplot(df.kruskal, aes(x = `mean rank diff`,
-               y = reorder(Comparison, `mean rank diff`),
-               color = Signif)) +
-  geom_point(size=3) +
-  geom_vline(xintercept = 0, linetype="dashed") +
-  theme_minimal() +
-  labs(title = "Forest plot de diferencias de rangos (Dunn Test)",
-       x = "Diferencia de Rangos",
-       y = "Comparación entre Mutaciones",
-       color = "Significativo") +
-  scale_color_manual(values=c("Sí"="red","No"="gray"))
-     
-
-```
-
-Distribución de los casos por rangos etarios Costa Rica, sexo masculino
-
-```{r}
-ggplot(subset(base.datos.cr.masculino, Cantidad_casos != 0), 
-       aes(x=Rango_etario, y = Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.5)+
-  labs(x = "Rango etario", y = "Cantidad de casos", 
-       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo masculino")+
-  theme_minimal()+
-  theme(plot.title = element_text(hjust = 0.5, size = 14),
-        axis.text.x = element_text(size=12, fontface="bold"),
-        axis.title.x = element_text(margin = margin(t = 20), size=13),
-        axis.title.y = element_text(margin = margin(r = 20), size =13))+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = 1, color = "blue3", size = 5, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_hombres.png", width = 8, height = 6, dpi = 900)
-  
-       
-```
-
-Distribución de los casos por rangos etarios Costa Rica, sexo femenino
-
-```{r}
-ggplot(subset(base.datos.cr.femenino, Cantidad_casos != 0), 
-       aes(x=Rango_etario, y = Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.7)+
-  labs(x = "Rango etario", y = "Cantidad de casos", 
-       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo femenino")+
-  theme_minimal()+
-  theme(plot.title = element_text(hjust = 0.5, size = 14),
-        axis.text.x = element_text(size=10, fontface="bold"),
-        axis.text.y = element_text(size=12, fontface="bold"),
-        axis.title.x = element_text(margin = margin(t = 20), size=13),
-        axis.title.y = element_text(margin = margin(r = 20), size =13))+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = -0.1, color = "blue3", size = 4, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_mujeres.png", width = 8, height = 6, dpi = 900)
-```
-
-Cantidad de casos por sexo: Costa Rica
-
-```{r}
-total.femenino <- sum(base.datos.cr.femenino$Cantidad_casos)
-total.masculino <- sum(base.datos.cr.masculino$Cantidad_casos)
-
-df.sexos <- data.frame(
-            Sexo = c("Femenino", "Masculino"),
-            Cantidad_casos = c(total.femenino, total.masculino))
-
-ggplot(df.sexos, aes(x=Sexo, y=Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.3)+
-  labs(x = "Sexo", y = "Cantidad de casos", 
-       title = "Distribución de los casos por sexos: Costa Rica")+
-  theme_minimal()+
-  theme(plot.title = element_text(hjust = 0.5, size = 14),
-        axis.text.x = element_text(size=14, fontface="bold"),
-        axis.text.y = element_text(size=12, fontface="bold"),
-        axis.title.x = element_text(margin = margin(t = 20), size=15),
-        axis.title.y = element_text(margin = margin(r = 20), size =15))+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = -0.1, color = "blue3", size = 5, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_sexos.png", width = 8, height = 6, dpi = 900)
-  
-```
-
 Relación entre la edad del diágnostico y las mutaciones más frecuentes
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #Datos a utilizar para el análisis de la relación entre la edad del diagnóstico y las mutaciones más frecuentes
 
 base.infer <- base.de.datos %>% 
@@ -501,9 +408,38 @@ base.infer.2 %>%
   )
 ```
 
+
+Boxplot de Edad al diagnóstico respecto a las mutaciones más frecuentes
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(base.infer.2, aes(x = as.factor(MUT_ID), y = Age_at_diagnosis)) +
+  geom_boxplot(fill = "pink", alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Edad al diagnóstico según Mutación (Top 10)",
+       x = "MUT_ID",
+       y = "Edad al diagnóstico")
+```
+
+QQ-plots de Edad al diagnóstico con respecto a las mutaciones más
+frecuentes
+
+```{r, warning=FALSE, message=FALSE}
+base.infer.2 %>% 
+  mutate(MUT_ID = as.factor(MUT_ID)) %>%
+  ggplot(aes(sample = Age_at_diagnosis)) +
+  stat_qq() +
+  stat_qq_line() +
+  facet_wrap(~ MUT_ID, scales = "free") +
+  theme_minimal() +
+  labs(title = "QQ-Plots de Age_at_diagnosis por Mutación",
+       y = "Cuantiles observados",
+       x = "Cuantiles teóricos normales")
+
+```
+
 Aplicación del método Kruskal-Wallis
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 kruskal.test(Age_at_diagnosis ~ MUT_ID, data = base.infer.2)
 
@@ -519,20 +455,78 @@ df.kruskal <- df.kruskal %>%
 
 ```
 
-Prueba de normalidad de la correlación de la edad y edad de diágnostico
-y el conteo de casos de cáncer por consorcios internacionales utilizando
-el Shapiro-Wilk test.
+Forest plot: diferencia de rangos y comparación entre mutaciones
 
-```{r, warning=FALSE}
-shapiro.test(cor.data$Age)
-shapiro.test(cor.data.diagnostico$Age_at_diagnosis)
-shapiro.test(cor.data$TCGA_ICGC_GENIE_count)
+```{r, warning=FALSE, message=FALSE}
+ggplot(df.kruskal, aes(x = `mean rank diff`,
+                       y = reorder(Comparison, `mean rank diff`),
+                       color = Signif)) +
+  geom_point(size = 3) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  scale_y_discrete(guide = guide_axis(check.overlap = TRUE)) +  # 👈 AQUÍ
+  theme_minimal() +
+  labs(
+    title = "Forest plot de diferencias de rangos (Dunn Test)",
+    x = "Diferencia de Rangos",
+    y = "Comparación entre Mutaciones",
+    color = "Significativo"
+  ) +
+  scale_color_manual(values = c("Sí" = "red","No" = "gray"))
 
-cor.test(cor.data$Age, cor.data$TCGA_ICGC_GENIE_count, 
-         method = "spearman")
+```
 
-cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_GENIE_count, 
-         method = "spearman")
+Distribución de los casos por rangos etarios Costa Rica, sexo masculino
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(subset(base.datos.cr.masculino, Cantidad_casos != 0), 
+       aes(x=Rango_etario, y = Cantidad_casos))+
+  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.5)+
+  labs(x = "Rango etario", y = "Cantidad de casos", 
+       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo masculino")+
+  theme_minimal()+
+  geom_text(aes(label = Cantidad_casos), 
+            vjust = 1, color = "blue3", size = 5, fontface = "bold")
+
+#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_hombres.png", width = 8, height = 6, dpi = 900)
+  
+       
+```
+
+Distribución de los casos por rangos etarios Costa Rica, sexo femenino
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(subset(base.datos.cr.femenino, Cantidad_casos != 0), 
+       aes(x=Rango_etario, y = Cantidad_casos))+
+  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.7)+
+  labs(x = "Rango etario", y = "Cantidad de casos", 
+       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo femenino")+
+  theme_minimal()+
+  geom_text(aes(label = Cantidad_casos), 
+            vjust = -0.1, color = "blue3", size = 4, fontface = "bold")
+
+#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_mujeres.png", width = 8, height = 6, dpi = 900)
+```
+
+Cantidad de casos por sexo: Costa Rica
+
+```{r, warning=FALSE, message=FALSE}
+total.femenino <- sum(base.datos.cr.femenino$Cantidad_casos)
+total.masculino <- sum(base.datos.cr.masculino$Cantidad_casos)
+
+df.sexos <- data.frame(
+            Sexo = c("Femenino", "Masculino"),
+            Cantidad_casos = c(total.femenino, total.masculino))
+
+ggplot(df.sexos, aes(x=Sexo, y=Cantidad_casos))+
+  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.3)+
+  labs(x = "Sexo", y = "Cantidad de casos", 
+       title = "Distribución de los casos por sexos: Costa Rica")+
+  theme_minimal()+
+  geom_text(aes(label = Cantidad_casos), 
+            vjust = -0.1, color = "blue3", size = 5, fontface = "bold")
+
+#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_sexos.png", width = 8, height = 6, dpi = 900)
+  
 ```
 
 \newpage
@@ -669,7 +663,7 @@ de mutaciones TP53 provenientes de los consorcios TCGA, ICGC y GENIE.
 
 Gráficamente, se puede observar mediante Figura 7 y Figura 8.
 
-## Interpretación de los gráficos de dispersión (Scatterplots)
+## Relación entre la edad y edad al diagnóstico con el conteo de mutaciones reportadas por los consorcios internacionales
 
 Los gráficos de dispersión (Figura 7 y 8) muestran visualmente la
 relación entre la edad y el conteo de mutaciones reportadas por los
