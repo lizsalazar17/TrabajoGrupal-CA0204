@@ -999,3 +999,11 @@ edades asociadas a las mutaciones más comunes del gen TP53: las
 mutaciones tienden a expresarse con mayor frecuencia en adultos jóvenes
 y adultos de mediana edad, mientras que en el contexto costarricense los
 casos se concentran en edades más avanzadas.
+
+\newpage
+
+# Referencias 
+
+Soto Flores, W. (2015). Cáncer de mama. *Revista Médica de Costa Rica y
+Centroamérica*, (617), 799-802.
+<https://www.binasss.sa.cr/revistas/rmcc/617/art20.pdf>
