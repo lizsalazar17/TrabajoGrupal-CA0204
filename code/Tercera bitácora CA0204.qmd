@@ -365,6 +365,8 @@ cor.data.diagnostico %>%
        y = "Frecuencia") +
   theme_minimal()
 
+#ggsave("../res/Histograma_edad_diag.png", width = 8, height = 6, dpi = 900)
+
 cor.data %>% 
   ggplot(aes(x = Age)) +
   geom_histogram(color = "black", fill = "lightblue", bins = 30) +
@@ -372,6 +374,8 @@ cor.data %>%
        x = "Edad",
        y = "Frecuencia") +
   theme_minimal()
+
+#ggsave("../res/Histograma_edad.png", width = 8, height = 6, dpi = 900)
 
 #Gráficos de correlación
 cor.data %>%
@@ -383,6 +387,8 @@ cor.data %>%
        y = "Conteo") +
   theme_minimal()
 
+#ggsave("../res/correlacion_edad.pdf", width = 8, height = 6, dpi = 900)
+
 cor.data.diagnostico %>%
   ggplot(aes(x = Age_at_diagnosis, y = TCGA_ICGC_GENIE_count)) +
   geom_point(alpha = 0.6, color = "steelblue") +
@@ -391,6 +397,7 @@ cor.data.diagnostico %>%
        x = "Edad al diagnóstico",
        y = "Conteo") +
   theme_minimal()
+#ggsave("../res/Correlación_edad_diag.pdf", width = 8, height = 6, dpi = 900)
 ```
 
 Boxplot de Edad al diagnóstico respecto a las mutaciones más frecuentes
