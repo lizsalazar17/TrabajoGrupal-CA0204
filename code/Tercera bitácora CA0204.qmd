@@ -198,6 +198,10 @@ permitirá contextualizar los resultados globales en el ámbito nacional,
 y formular hipótesis sobre la posible prevalencia de mutaciones
 similares en el país.
 
+\newpage
+
+# Construcción del código
+
 # Librerías
 
 ```{r, warning=FALSE}
@@ -587,6 +591,10 @@ cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_G
          method = "spearman")
 ```
 
+\newpage
+
+# Análisis de los hallazgos 
+
 # Discusión y resultados
 
 ## Relación de edad al diagnóstico y mutaciones más frecuentes
@@ -788,7 +796,65 @@ elementos.
 
 ## Relación del escenario costarricense en el 2022 y la expresión mutada del gen TP53
 
-## 
+A partir de lo analizado en los subapartados anteriores, en conjunto con
+lo visualizado en los gráficos correspondientes a la incidencia del
+cáncer de mama en Costa Rica durante el 2022, se determina que en la
+población costarricense los tres rangos etarios con una mayor incidencia
+del cáncer estudiado fueron: de los 55 a los 59 años, a partir de los 75
+años y de los 65 a los 69 años.
+
+Se analizará la relación del boxplot que detalla la relación entre las
+diez principales mutaciones del gen TP53 y la edad al diagnóstico con
+los tres rangos etarios de mayor incidencia en el escenario
+costarricense durante el año 2022.
+
+### Rango etario con mayor incidencia: de los 55 a los 59 años
+
+En primera instancia, es preciso destacar que para todas las mutaciones
+se cumple
+que el 50% de los datos centrales si sitúan por debajo de los 50 años,
+además,
+se presentan casos particulares en los cuales los bigotes de las cajas
+están por debajo de esa misma edad o apenas la superan, tal es el
+escenario para las mutaciones de identificador 3297, 2143, 3294, 3737 y
+3879. En particular, para la mutación con identificador 1429, se
+identifica la presencia de valores atípicos en edades que comprenden o
+son cercanas al rango etario de mayor incidencia en el país. Es
+importante aclarar que cuando se menciona que las mutaciones poseen
+valores atípicos en ciertas edades, se refiere a que la expresión de
+dicha mutación no es común para esas edades.
+
+Por otra parte, la extensión de los bigotes de las mutaciones 2242 y
+4585 comprenden el rango etario que va de los 55 a los 59 años: si bien,
+la mayoría de expresiones de ambas mutaciones no se sitúan en las edades
+versadas, su presencia en ellas no se considera un valor atípico e
+inclusive para la mutación 4585 representan las edades más altas
+consideradas como valores normales o típicos.
+
+### Rango etario con la segunda mayor incidencia: a partir de los 75 años
+
+Para el rango etario bajo estudio, se presenta un fenómeno particular
+respecto a la expresión de las diez mutaciones del gen TP53 más comunes:
+en la totalidad de estas diez mutaciones, no se considera un valor
+típico su expresión en edades iguales o superiores a los 75 años. De
+hecho, en el gráfico no se muestra la presencia de valores atípicos en
+estas edades, a excepción de la mutación con identificador 4584, que
+posee un valor atípico en dicha área. Lo anterior no es sinónimo de que
+la expresión de las mutaciones sea común para las edades comprendidas en
+el rango etario, en su lugar sugiere que estas no se presentan del todo,
+ni siquiera como valor atípico.
+
+### Rango etario con la tercer mayor incidencia: de los 65 a los 69 años 
+
+Se identifican dos aspectos principales. En primer lugar, la presencia
+de valores atípicos situados en el rango etario bajo estudio para tres
+mutaciones distintas: 2143, 3294 y 3236. En segundo lugar, la extensión
+del bigote de la mutación de identificador 2242 comprende las edades
+estudiadas; si bien, la mayoría de expresiones de la mutación 2242 no se
+sitúa en ellas, su presencia en tal rango etario no se considera un
+valor atípico.
+
+\newpage
 
 # Conclusiones
 
