@@ -251,10 +251,11 @@ con mayor o menor edad de diagnóstico.
 ## Diferencia de rangos y comparación entre mutaciones
 
 En este gráfico se presentan diferencias de rangos promedio entre pares
-de mutacione. Cada punto es una comparación y los colores son
+de mutaciones. Cada punto es una comparación y los colores son
 determindados de acuerdos a si el valor p es menor a 0,05 (rojos) y o
 sino (grises), es decir, si se presenta una diferencia estadística
 significativa.
+
 
 El eje vertical permite observar que mutación presenta un diagnóstico
 mayor respecto a la mutación con la que se compara, si la diferencia es
