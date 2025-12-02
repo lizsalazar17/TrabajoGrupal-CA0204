@@ -1,52 +1,90 @@
 ---
-format: 
-  pdf: 
-    papersize: letter
+title: >
+  Expresión del gen TP53 en el tejido mamario de pacientes y de personas
+  en riesgo de cáncer de pecho: análisis por grupos etarios
+subtitle: "Proyecto de Herramientas para Ciencia de Datos I CA0204"
+author: 
+  - name: "Alexandra González | Estefanía Mora | Liz Salazar | José Miguel Rodríguez"
+    affiliation: "Universidad de Costa Rica"
+lang: es-CR
+
+format:
+  pdf:
+    pdf-engine: pdflatex
     documentclass: article
-    lang: es-CR
+    papersize: letter
     titlepage: true
-    fontsize: "11pt"
-    mainfont: Times New Roman
-    urlcolor: "blue"
-    number-sections: true
-    margin-left: "2.54cm"
-    margin-right: "2.54cm"
-    margin-top: "2.54cm"
-    margin-bottom: "2.54cm"
-    include-in-header: header.tex 
-    #include-before-body: Portada.qmd
+    number-sections: false
+    fontsize: 11pt
+    mainfont: "Times New Roman"
+    colorlinks: true
+    urlcolor: blue
+    geometry:
+      - left=2.54cm
+      - right=2.54cm
+      - top=2.54cm
+      - bottom=2.54cm
     header-includes:
+      - \usepackage{fancyhdr}
+      - \pagestyle{fancy}
+      - \fancyhf{}
+      - \setlength{\headheight}{15pt}
+      - \usepackage{setspace}
+      - \AtBeginDocument{\onehalfspacing}
       - \usepackage{indentfirst}
       - \setlength{\parindent}{1.27cm}
+      - \setlength{\parskip}{0em}
+      - \usepackage{microtype}
+      - \usepackage{hanging}
+      - \usepackage{float}
+      - \raggedbottom
+    include-in-header:
+      - header.tex
 
-editor: 
-  markdown: 
-    wrap: 72
+editor: visual
 ---
+# Resumen (Abstract)
 
-\newpage
+# Introducción
 
+El gen TP53, ampliamente reconocido en el campo médico por su desempeño en la supresión tumoral, pertenece al conjunto de genes que de acuerdo con López et al. (2001), están implicados en diversos procesos de división celular, dentro de ellos la regulación de la expresión génica, el control del ciclo celular, la programación de la muerte celular y la estabilidad del genoma, es decir, la capacidad de la célula para mantener su material genético sin modificaciones a lo largo del tiempo. El gen mencionado inicialmente tiene múltiples funciones, puesto que además de influir en el control del ciclo celular, también se involucra en la integridad del ADN así como en la supervivencia de las células expuestas a agentes que dañan el mismo.
 
-Link al repositorio: <https://github.com/lizsalazar17/TrabajoGrupal-CA0204.git>
+A pesar de sus múltiples funciones beneficiosas para el cuerpo humano, su respectiva alteración transfiere un riesgo muy elevado al desarrollo del cáncer. Bajo condiciones normales, cuando se produce un daño en el ADN, el gen TP53 detiene el ciclo celular, no obstante, en caso de que la proteína p53 esté mutada, el ciclo celular continúa y el ADN dañado se replica; en consecuencia, se produce una proliferación celular descontrolada\footnote{ La proliferación celular descontrolada consiste en el crecimiento y la división de las células a una velocidad anormal, sin responder a las señales de detención o muerte celular.}, lo cual desemboca en tumores cancerosos. Respecto a lo anterior, Patiño et al. (2004, p. 88) agregan que este gen "se encuentra alterado en cerca del 60% de todos los tipos de tumores", asimismo, estiman que "aproximadamente de los 6.5 millones de casos de cáncer informados anualmente en el mundo, 2.4 millones de los mismos ocurren por mutaciones de dicho gen".
+
+En conocencia de lo expuesto en los párrafos anteriores, se propone el estudio de la expresión del gen versado, en el tejido mamario de los pacientes y de las personas en riesgo de cáncer de pecho, el cual "es el tipo de cáncer más frecuente y la causa más común de muerte por cáncer en mujeres a nivel mundial" (Organización Panamericana de la Salud, s.f.). Asimismo, se formula un análisis segmentado por grupos etarios: la adolescencia, que comprende de los 12 a los 18 años; la juventud, que agrupa a los individuos de entre 19 y 30 años; la adultez, que va de los 30 a los 60 años y finalmente la vejez, de 60 años en adelante.
+
+# Delimitación del tema
+
+El proyecto se delimita en torno a dos ejes temáticos que se fusionan: el gen TP53 y el cáncer de pecho. De esta forma, se vincula la presencia del primero con el desarrollo del segundo. Asimismo, el trabajo se segmentará en los grupos etarios definidos previamente.
+
+Por otro lado, en un primer momento se analizarán las expresiones del gen TP53 en el tejido mamario de pacientes y de personas en riesgo de cáncer de pecho, a partir de la base internacional seleccionada. Una vez contruidas las conclusiones pertinentes, las mismas se trasladarán al escenario costarricense mediante el acceso a la base de datos del Ministerio de Salud relacionada al recuento de personas portadoras de cáncer de pecho. Lo anterior con el objetivo de formular ciertas hipótesis sobre el vínculo existente entre la expresión del gen mencionado y el desarrollo del cáncer de pecho en Costa Rica.
+
+# Justificación
+
+El estudio del gen TP53 es de vital importancia para la comprensión de
+los mecanismos moleculares del cáncer de mama. Las mutaciones en este
+gen pueden conducir a una proliferación celular descontrolada y a la
+pérdida de la función supresora tumoral, incrementando el riesgo de
+malignidad. Analizar su expresión por grupos etarios permitirá
+identificar patrones que podrían asociarse a factores de riesgo
+biológicos o ambientales específicos.
+
+Además, la comparación con datos del Ministerio de Salud de Costa Rica
+ofrece la posibilidad de contextualizar los hallazgos en la realidad
+nacional, contribuyendo al diseño de estrategias de prevención y
+detección temprana más precisas.
 
 # Fundamentación del proyecto
 
-## Pregunta de investigación
+## Objetivos
 
-¿Cómo varía la expresión y la frecuencia de las mutaciones del gen TP53
-en el tejido mamario de pacientes y personas en riesgo de desarrollar
-cáncer de pecho, considerando los distintos grupos etarios? ¿Cómo se
-relacionan los resultados obtenidos a los registrados en Costa Rica?
-
-# Objetivos
-
-## Objetivo general
+### Objetivo general
 
 Analizar la expresión y frecuencia de las mutaciones del gen TP53 en el
 tejido mamario de pacientes y personas en riesgo de desarrollar cáncer
 de pecho, diferenciando los resultados por grupos etarios.
 
-## Objetivos específicos
+### Objetivos específicos
 
 -   Identificar las mutaciones más frecuentes del gen TP53 presentes en
     el tejido mamario de los individuos analizados.
@@ -64,9 +102,9 @@ de pecho, diferenciando los resultados por grupos etarios.
     las alteraciones del gen TP53 y la incidencia de cáncer de pecho en
     Costa Rica, a partir de los registros del Ministerio de Salud.
 
-# Hipótesis
+## Hipótesis
 
-## Hipótesis general:
+### Hipótesis general:
 
 La expresión del gen TP53 en el tejido mamario presenta variaciones
 significativas según el grupo etario, siendo más frecuentes las
@@ -74,12 +112,12 @@ mutaciones en adultos jóvenes y adultos medios.
 
 Esta tendencia ha sido observada en múltiples estudios donde se reporta que las mutaciones somáticas y germinales de TP53 aparecen con mayor prevalencia en mujeres diagnosticadas a edades tempranas, particularmente menores de 40 años (Evans et al., 2020; Li et al., 2025; Kwong et al., 2020). Asimismo, se ha documentado que aproximadamente el 30 % de los cánceres de mama muestran mutaciones en este gen, lo que justifica su análisis detallado en cohortes estratificadas por edad (Silwal-Pandit et al., 2014; Hwang et al., 2024).
 
-# Hipótesis específicas:
+## Hipótesis específicas:
 
 -   $H_1$: Las mutaciones más frecuentes del gen TP53 se concentran en
     individuos diagnosticados entre los 30 y 50 años.
 
-Esta hipótesis se fundamenta en el hecho de que varias investigaciones han reportado picos de incidencia y prevalencia de mutaciones TP53 en grupos etarios jóvenes y de mediana edad. Por ejemplo, Li et al. (2025) encontraron prevalencias mayores en pacientes de ≤30 años que en grupos de 31–40 años, y Kwong et al. (2020) reportaron edades de diagnóstico cercanas a los 27–30 años en portadoras de mutaciones germinales. Aunque los rangos exactos varían entre poblaciones, la evidencia coincide en una mayor frecuencia de mutaciones TP53 en edades anteriores a los 50 años, lo cual respalda la formulación de esta hipótesis.
+Esta hipótesis se fundamenta en el hecho de que varias investigaciones han reportado picos de incidencia y prevalencia de mutaciones TP53 en grupos etarios jóvenes y de mediana edad. Por ejemplo, Li et al. (2025) encontraron prevalencias mayores en pacientes de 30 años (menores o iguales) que en grupos de 31–40 años, y Kwong et al. (2020) reportaron edades de diagnóstico cercanas a los 27–30 años en portadoras de mutaciones germinales. Aunque los rangos exactos varían entre poblaciones, la evidencia coincide en una mayor frecuencia de mutaciones TP53 en edades anteriores a los 50 años, lo cual respalda la formulación de esta hipótesis.
 
 -   $H_2$: Existe una relación significativa entre el tipo de mutación
     (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
@@ -93,21 +131,6 @@ Esto coincide con hallazgos que señalan que el espectro mutacional de TP53 no e
 Aunque no existen estudios extensivos de TP53 en poblaciones costarricenses, las tendencias globales muestran que poblaciones con mayor carga de cáncer de mama en ciertos grupos etarios tienden también a presentar variabilidad mutacional significativa en genes clave como TP53 (Evans et al., 2020; Silwal-Pandit et al., 2014). Por lo tanto, extrapolando estas tendencias, es razonable plantear que si en Costa Rica existe un grupo etario con mayor prevalencia de casos, podría observarse también una mayor diversidad mutacional asociada al gen.
 
 Estas hipótesis se generaron de acuerdo a lo estipulado por la evidencia científica existente sobre la distribución etaria de mutaciones del gen TP53 en cáncer de mama, así como por estudios que destacan su variabilidad mutacional y su relevancia clínica en poblaciones jóvenes y de mediana edad (Evans et al., 2020; Li et al., 2025; Silwal-Pandit et al., 2014).
-
-# Justificación
-
-El estudio del gen TP53 es de vital importancia para la comprensión de
-los mecanismos moleculares del cáncer de mama. Las mutaciones en este
-gen pueden conducir a una proliferación celular descontrolada y a la
-pérdida de la función supresora tumoral, incrementando el riesgo de
-malignidad. Analizar su expresión por grupos etarios permitirá
-identificar patrones que podrían asociarse a factores de riesgo
-biológicos o ambientales específicos.
-
-Además, la comparación con datos del Ministerio de Salud de Costa Rica
-ofrece la posibilidad de contextualizar los hallazgos en la realidad
-nacional, contribuyendo al diseño de estrategias de prevención y
-detección temprana más precisas.
 
 # Marco metodológico
 
@@ -137,79 +160,57 @@ De este modo, cada método estadístico aportará evidencia específica para res
 
 Posteriormente, se llevará a cabo un análisis comparativo entre regiones geográficas, tomando como base la variable Country de la base internacional. Se describirá la distribución de mutaciones del gen TP53 en diferentes países y regiones, con especial énfasis en América Latina. Esta información se contrastará cualitativamente con la base de datos del Ministerio de Salud de Costa Rica, para explorar si los patrones internacionales guardan relación con las tasas de incidencia y mortalidad por cáncer de mama en la población costarricense. Aunque no se establecerán correlaciones estadísticas directas entre ambas bases debido a la diferencia en el tipo de información, este ejercicio permitirá contextualizar los resultados globales en el ámbito nacional, y formular hipótesis sobre la posible prevalencia de mutaciones similares en el país.
 
-\newpage
+## Bases de datos
 
-# Construcción del código
+La principal base de datos a utilizarse corresponde a la proporcionada por el Instituto Nacional de Cáncer en Estados Unidos: "The TP53 Dataset, R21". La versión R21 es la más reciente, se actualizó en enero de 2025. Este recurso contiene alrededor de 29,900 variantes de tumores, más de 2,155 individuos con variantes del gen *TP53* confirmadas y datos funcionales sobre más de 9,000 proteínas mutantes. En particular, la información se filtrará y se tomará únicamente aquella en donde la morfología coincida con los pechos, es decir, que las anormalidades se presenten en el área estipulada.
 
-# Librerías
+En el caso de Costa Rica, la base de datos del Ministerio de Salud se utilizará en una vía mayormente cualitativa, orientada a la formulación de hipótesis significativas en la materia. Dicha herramienta se titula: "Incidencia de tumores malignos diferentes características" y su versión más reciente corresponde a la del año 2022; asimismo, segmenta el recuento por sexo y rangos de edad.
 
-```{r, warning=FALSE, message=FALSE}
-library(readr)
+Primeramente, se va a realizar un filtro para obtener las columnas y filas de interés de la base de datos internacional, como se muestra a continuación. Se trabajará con la misma a partir de aquí.
 
-library(dplyr)
+En primera instancia, es primordial resaltar que la tabla de datos encargada de solventar la mayor parte del proyecto es aquella que se genera a partir de la base de datos internacional, ya que con ella se busca determinar tendencias en las expresiones del gen TP53 presentes en el tejido mamario de pacientes o personas que potencialmente podrían desarrollar cáncer de pecho. En contraste, tal como se mencionó antes, los datos extendidos por el Ministerio de Salud de Costa Rica se emplearán desde un enfoque cualitativo, de forma que estos contribuyan en la formulación de hipótesis relacionadas a dicho tema para la población nacional. En motivo de lo anterior, el presente apartado además de los sucesores, se apoyarán solo en la tabla de información filtrada de la base de datos internacional.
 
-library(ggplot2)
+De esta forma, se emplearon dos paramétros clave para filtrar la tabla de datos: el primero se basó en la utilidad de las variables de estudio para el proyecto y el segundo consistió en que la topografía fuera igual en todos los casos al área del pecho, es decir, que los padecimientos se situaran en el sector mencionado. A partir de ello, se generó una tabla de datos que contiene la información de 1,153 pacientes en su mayoría del sexo femenino, de nacionalidades variadas y con edades que oscilan entre los 14 y los 90 años.
 
-library(DescTools)
+La totalidad de la información fue recolectada por el Instituto Nacional de Cáncer de Estados Unidos y la última actualización de la base de datos fue en enero de 2025. Tales actualizaciones, especialmente las que conciernen a las variantes del gen TP53, se sustentan de los datos reportados en la literatura médica publicada, al igual que de otras bases de datos públicas.
 
-library(tidyr)
+### **Población de estudio**
 
-library(readxl)
+La población de estudio incluye pacientes y personas con un riesgo elevado de desarrollar cáncer de pecho, con edades comprendidas entre los 14 y los 90 años, que además presentan expresiones del gen TP53 en el tejido mamario. Los datos de los individuos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025.
 
-library(here)
+### **Muestra observada**
 
+La muestra que se seleccionó está conformada por un total de 1,153 individuos de edades y nacionalidades variadas, cuyos datos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025. Tales sujetos poseen expresiones del gen TP53 en el tejido mamario, al mismo tiempo que son pacientes de cáncer de pecho o poseen un alto riesgo de contraerlo.
 
-```
+### **Unidad estadística o individuos**
 
-# Bases de datos
+La unidad estadística se define en cada uno de los individuos que padecen o poseen un alto riesgo de desarrollar cáncer de pecho, que muestran expresiones del gen TP53 en el tejido mamario y cuyos datos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025.
 
-```{r, warning=FALSE, message=FALSE}
-url <- "https://raw.githubusercontent.com/eetefy2311/TP53-data/refs/heads/main/GermlineDownload_r21.csv"
+### **Variables de estudio**
 
-temp.file <- tempfile(fileext = ".csv")
+-   **País** (Country, cualitativa): país del que proviene la persona.
 
-download.file(url, destfile = temp.file, mode = "wb")
+-   **Población** (Population, cualitativa): población de la que proviene la persona.
 
-base.de.datos <- read_csv(temp.file)
+-   **Región** (Region, cualitativa): región de la que proviene la persona.
 
-base.datos.cr.masculino <- read_excel(here("data", "base_cr.xlsx"))
+-   **Gen mutado** (Germline_mutation, cualitativa): tiene un valor único, el gen TP53.
 
-base.datos.cr.femenino <- read_excel(here("data", "base_cr.xlsx"), 2)
+-   **Identificador personal** (Individual_ID, cualitativa): identificador individual de cada persona.
 
-base.datos.cr.femenino.provincias <- read_excel(here("data", "base_cr.xlsx"), 3)
-   
-View(base.datos.cr.femenino)
-View(base.datos.cr.femenino.provincias)
-View(base.datos.cr.masculino)
+-   **Sexo** (Sex, cualitativa): corresponde al sexo de la persona. F se denota para femenino y M para masculino.
 
-base.de.datos.filtrada <- base.de.datos %>% 
-  select(Country, Population, Region, Germline_mutation, 
-         Individual_ID, MUT_ID, TCGA_ICGC_GENIE_count, 
-         Sex,Age_at_diagnosis, Topography, Short_topo, Morphology, 
-         Dead, Age) %>% 
-  filter(Topography == "BREAST")
-```
+-   **Edad de diagnóstico** (Age_at_diagnosis, cuantitativa): edad en la que fue diagnosticado el padecimiento en la persona.
 
-# Datos descriptivos de la base internacional
+-   **Topografía** (Topography, cualitativa): área en la que se encuentra el padecimiento.
 
-Frecuencias de MUT_ID
+-   **Topografía específica** (Short_topo, cualitativa): área específica en la que se encuentra el padecimiento.
 
-```{r, warning=FALSE, message=FALSE}
-frecuencias.mutaciones <- base.de.datos %>%
-  group_by(MUT_ID) %>% 
-  summarise(
-    frecuencia = n(),
-    porcentaje = round((n()/nrow(base.de.datos))*100, 3)
-  ) %>% 
-  arrange(desc(frecuencia))
-```
+-   **Morfología** (Morphology, cualitativa): se refiere al tipo de padecimiento.
 
-Las diez mutaciones con mayor frecuencia
+-   **Muerte** (Dead, cualitativa): indica si la persona está muerta o viva. Se denota TRUE cuando está muerta y FALSE cuando está viva.
 
-```{r, warning=FALSE, message=FALSE}
-top.mutaciones <- frecuencias.mutaciones %>% 
-  head(10)
-```
+# Discusión y análisis de resultados
 
 ## **Estadísticas Descriptivas de la Edad**
 
@@ -228,322 +229,15 @@ Desviación estándar: `r round(sd(base.de.datos$Age, na.rm = TRUE),1)`
 Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)` IQR:
 `r round(IQR(base.de.datos$Age, na.rm = TRUE),1)`
 
-# Gráficos
-
-Histograma sobre la distribución de edades
-
-```{r, warning=FALSE, message=FALSE}
-base.de.datos %>% 
-  filter(!is.na(Age)) %>% 
-  ggplot(aes(x = Age)) +
-  geom_histogram(color = "black", fill = "lightblue") +
-  scale_x_continuous(breaks = seq(0,100,5)) +
-  labs(title = "Distribución de edades",
-       x = "Edad",
-       y = "Cantidad") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-Boxplot de Edades con respecto al Efecto de Mutación
-
-```{r, warning=FALSE, message=FALSE}
-base.de.datos %>%
-  filter(!is.na(Age), !is.na(Effect)) %>%
-  ggplot(aes(x = Effect, y = Age)) +
-  geom_boxplot(fill = "lightblue", alpha = 0.7) +
-  labs(title = "Distribución de Edades por Tipo de Efecto",
-       x = "Tipo de Efecto",
-       y = "Edad") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-Boxplot de Edades con respecto a la Clase de Mutación
-
-```{r, warning=FALSE, message=FALSE}
-base.de.datos %>%
-  filter(!is.na(Age), !is.na(Class)) %>%
-  ggplot(aes(x = Class, y = Age)) +
-  geom_boxplot(fill = "lightgreen", alpha = 0.7) +
-  scale_y_continuous(breaks = seq(0,100,10)) +
-  labs(title = "Distribución de Edades por Tipo de Efecto",
-       x = "Tipo de Mutación",
-       y = "Edad") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-Boxplot de Edades y Sexo
-
-```{r, warning=FALSE, message=FALSE}
-base.de.datos %>%
-  filter(!is.na(Age), !is.na(Sex)) %>%
-  mutate(Sexo = ifelse(Sex == "F", "Femenino", "Masculino")) %>%
-  ggplot(aes(x = Sexo, y = Age)) +
-  geom_boxplot(fill = "#4AA0BD", alpha = 0.7) +
-  scale_y_continuous(breaks = seq(0,100,10)) +
-  labs(title = "Distribución de Edades por Tipo de Efecto",
-       x = "Tipo de Mutación",
-       y = "Edad") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5))
-
-```
-
-Histogramas y scatterplots de la correlación entre la edad y edad de
-diagnóstico y cantidad de casos reportados por consorcios
-internacionales
-
-```{r, warning=FALSE, message=FALSE}
-
-#Datos a utilizar para el proceso de correlación
-
-cor.data.diagnostico <- base.de.datos.filtrada %>%
-  filter(!is.na(Age_at_diagnosis), !is.na(TCGA_ICGC_GENIE_count)) %>%
-  select(Age_at_diagnosis, TCGA_ICGC_GENIE_count)
-
-cor.data <- base.de.datos.filtrada %>%
-  filter(!is.na(Age), !is.na(TCGA_ICGC_GENIE_count)) %>%
-  select(Age, TCGA_ICGC_GENIE_count)
-
-#Histogramas de las edades
-cor.data.diagnostico %>% 
-  ggplot(aes(x = Age_at_diagnosis)) +
-  geom_histogram(color = "black", fill = "lightblue", bins = 30) +
-  labs(title = "Histograma de edades al diagnóstico",
-       x = "Edad",
-       y = "Frecuencia") +
-  theme_minimal()
-
-#ggsave("../res/Histograma_edad_diag.png", width = 8, height = 6, dpi = 900)
-
-cor.data %>% 
-  ggplot(aes(x = Age)) +
-  geom_histogram(color = "black", fill = "lightblue", bins = 30) +
-  labs(title = "Histograma de edades (alto porcentaje de NA)",
-       x = "Edad",
-       y = "Frecuencia") +
-  theme_minimal()
-
-#ggsave("../res/Histograma_edad.pdf", width = 8, height = 6, dpi = 900)
-```
-Prueba de normalidad de la correlación de la edad y edad de diágnostico
-y el conteo de casos de cáncer por consorcios internacionales utilizando
-el Shapiro-Wilk test.
-
-```{r, warning=FALSE, message=FALSE}
-shapiro.test(cor.data$Age)
-shapiro.test(cor.data.diagnostico$Age_at_diagnosis)
-shapiro.test(cor.data$TCGA_ICGC_GENIE_count)
-
-cor.test(cor.data$Age, cor.data$TCGA_ICGC_GENIE_count, 
-         method = "spearman")
-
-cor.test(cor.data.diagnostico$Age_at_diagnosis, cor.data.diagnostico$TCGA_ICGC_GENIE_count, 
-         method = "spearman")
-```
-
-Correlación utilizando método spearman
-```{r, warning=FALSE, message=FALSE}
-#Gráficos de correlación
-cor.data %>%
-  ggplot(aes(x = Age, y = TCGA_ICGC_GENIE_count)) +
-  geom_point(alpha = 0.6, color = "steelblue") +
-  geom_smooth(method = "lm", se = FALSE, color = "red") +
-  labs(title = "Edad vs Conteo TCGA/ICGC/GENIE",
-       x = "Edad",
-       y = "Conteo") +
-  theme_minimal()
-
-#ggsave("../res/correlacion_edad.pdf", width = 8, height = 6, dpi = 900)
-
-cor.data.diagnostico %>%
-  ggplot(aes(x = Age_at_diagnosis, y = TCGA_ICGC_GENIE_count)) +
-  geom_point(alpha = 0.6, color = "steelblue") +
-  geom_smooth(method = "lm", se = FALSE, color = "red") +
-  labs(title = "Edad al diagnóstico vs Conteo TCGA/ICGC/GENIE",
-       x = "Edad al diagnóstico",
-       y = "Conteo") +
-  theme_minimal()
-#ggsave("../res/Correlación_edad_diag.pdf", width = 8, height = 6, dpi = 900)
-```
-
-Relación entre la edad del diágnostico y las mutaciones más frecuentes
-
-```{r, warning=FALSE, message=FALSE}
-#Datos a utilizar para el análisis de la relación entre la edad del diagnóstico y las mutaciones más frecuentes
-
-base.infer <- base.de.datos %>% 
-  filter(Topography == "BREAST")
-
-base.infer <- base.infer %>%
-  select(MUT_ID, Age_at_diagnosis) %>%
-  filter(!is.na(MUT_ID), !is.na(Age_at_diagnosis))
-
-frecuencias.mutaciones.infer <- base.infer %>%
-  group_by(MUT_ID) %>%
-  summarise(frecuencia = n()) %>%
-  arrange(desc(frecuencia))
-
-top10.infer <- frecuencias.mutaciones.infer %>%
-  slice_head(n = 10) %>%
-  pull(MUT_ID)
-
-
-base.infer.2 <- base.infer %>%
-  filter(MUT_ID %in% top10.infer)
-
-#Veamos si los datos se distribuyen normalmente
-
-base.infer.2 %>%
-  group_by(MUT_ID) %>%
-  summarise(
-    n = n(),
-    shapiro_p = if (n() >= 3 && n() <= 5000) {
-      shapiro.test(Age_at_diagnosis)$p.value
-    } else {
-      NA_real_
-    }
-  )
-```
-
-
-Boxplot de Edad al diagnóstico respecto a las mutaciones más frecuentes
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(base.infer.2, aes(x = as.factor(MUT_ID), y = Age_at_diagnosis)) +
-  geom_boxplot(fill = "pink", alpha = 0.7) +
-  theme_minimal() +
-  labs(title = "Edad al diagnóstico según Mutación (Top 10)",
-       x = "MUT_ID",
-       y = "Edad al diagnóstico")
-#ggsave("../res/Edad_MUTID.pdf", width = 8, height = 6, dpi = 900)
-```
-
-QQ-plots de Edad al diagnóstico con respecto a las mutaciones más
-frecuentes
-
-```{r, warning=FALSE, message=FALSE}
-base.infer.2 %>% 
-  mutate(MUT_ID = as.factor(MUT_ID)) %>%
-  ggplot(aes(sample = Age_at_diagnosis)) +
-  stat_qq() +
-  stat_qq_line() +
-  facet_wrap(~ MUT_ID, scales = "free") +
-  theme_minimal() +
-  labs(title = "QQ-Plots de Age_at_diagnosis por Mutación",
-       y = "Cuantiles observados",
-       x = "Cuantiles teóricos normales")
-
-```
-
-Aplicación del método Kruskal-Wallis
-
-```{r, warning=FALSE, message=FALSE}
-
-kruskal.test(Age_at_diagnosis ~ MUT_ID, data = base.infer.2)
-
-dunn <- DunnTest(Age_at_diagnosis ~ MUT_ID, data = base.infer.2, method="bonferroni")
-
-df.kruskal <- as.data.frame(dunn[[1]])
-df.kruskal$Comparison <- rownames(df.kruskal)
-rownames(df.kruskal) <- NULL
-
-df.kruskal <- df.kruskal %>% 
-  mutate(Comparison = as.character(Comparison),
-         Signif = ifelse(pval < 0.05, "Sí", "No"))
-
-```
-
-Forest plot: diferencia de rangos y comparación entre mutaciones
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(df.kruskal, aes(x = `mean rank diff`,
-                       y = reorder(Comparison, `mean rank diff`),
-                       color = Signif)) +
-  geom_point(size = 3) +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  scale_y_discrete(guide = guide_axis(check.overlap = TRUE)) +  # 👈 AQUÍ
-  theme_minimal() +
-  labs(
-    title = "Forest plot de diferencias de rangos (Dunn Test)",
-    x = "Diferencia de Rangos",
-    y = "Comparación entre Mutaciones",
-    color = "Significativo"
-  ) +
-  scale_color_manual(values = c("Sí" = "red","No" = "gray"))
-
-```
-
-Distribución de los casos por rangos etarios Costa Rica, sexo masculino
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(subset(base.datos.cr.masculino, Cantidad_casos != 0), 
-       aes(x=Rango_etario, y = Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.5)+
-  labs(x = "Rango etario", y = "Cantidad de casos", 
-       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo masculino")+
-  theme_minimal()+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = 1, color = "blue3", size = 5, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_hombres.png", width = 8, height = 6, dpi = 900)
-  
-       
-```
-
-Distribución de los casos por rangos etarios Costa Rica, sexo femenino
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(subset(base.datos.cr.femenino, Cantidad_casos != 0), 
-       aes(x=Rango_etario, y = Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.7)+
-  labs(x = "Rango etario", y = "Cantidad de casos", 
-       title = "Distribución de los casos por rangos etarios: Costa Rica, sexo femenino")+
-  theme_minimal()+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = -0.1, color = "blue3", size = 4, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_mujeres.png", width = 8, height = 6, dpi = 900)
-```
-
-Cantidad de casos por sexo: Costa Rica
-
-```{r, warning=FALSE, message=FALSE}
-total.femenino <- sum(base.datos.cr.femenino$Cantidad_casos)
-total.masculino <- sum(base.datos.cr.masculino$Cantidad_casos)
-
-df.sexos <- data.frame(
-            Sexo = c("Femenino", "Masculino"),
-            Cantidad_casos = c(total.femenino, total.masculino))
-
-ggplot(df.sexos, aes(x=Sexo, y=Cantidad_casos))+
-  geom_bar(stat = "identity", fill = "lightblue2", color = "white", width = 0.3)+
-  labs(x = "Sexo", y = "Cantidad de casos", 
-       title = "Distribución de los casos por sexos: Costa Rica")+
-  theme_minimal()+
-  geom_text(aes(label = Cantidad_casos), 
-            vjust = -0.1, color = "blue3", size = 5, fontface = "bold")
-
-#ggsave("C:/Users/alego/OneDrive/Documentos/Proyecto grupal/TrabajoGrupal-CA0204/res/Distribucion_casos_CR_sexos.png", width = 8, height = 6, dpi = 900)
-  
-```
-
-\newpage
-
-# Análisis de los hallazgos
-
-# Discusión y resultados
-
 ## Relación de edad al diagnóstico y mutaciones más frecuentes
 
 Al analizar la relación entre la variable Age_at_diagnosis y MUT_ID
 usando las 10 mutaciones más frecuentes, se utilizó shapiro.test para
-comprobar si las variables se dstribuyen normalmente. Esto se puede ver
-en la gráfica 10. Debido a que se presentaron pocos datos que si cumplen
+comprobar si las variables se dstribuyen normalmente. Debido a que se presentaron pocos datos que si cumplen
 con esta condición, se escogió Kruskal-Wallis para determinar si hay una
 diferencia significativa entre los distintos grupos de mutaciones.
+
+![Relación de edad al diagnóstico y mutaciones más frecuentes](../res/Edad_MUTID.pdf){width=60%}
 
 ## Evaluación del método Kruskal-Wallis para encontrar diferencias significativas entre edades al diagnóstico de distintos grupos.
 
@@ -577,7 +271,7 @@ compararse con 2242.
 
 ## Distribución de edades y edades al diagnóstico
 
-El primer histograma (Figura 5) muestra que la distribución de la edad
+El primer histograma muestra que la distribución de la edad
 al diagnóstico es asimétrica hacia la derecha (sesgo positivo). La
 mayoría de los casos se concentran entre los 25 y 40 años, con un pico
 marcado alrededor de los 30 años, lo que indica que este grupo etario es
@@ -589,7 +283,9 @@ alrededor de 75–80 años), pero con muy pocos casos. Esta forma confirma
 que la distribución no es normal y que la base contiene una gran
 proporción de diagnósticos en edades relativamente jóvenes.
 
-El segundo histograma (Figura 6), aunque basado en un subconjunto más
+![Histograma de edades al diagnóstico](../res/Histograma_edad_diag.pdf){width=60%}
+
+El segundo histograma, aunque basado en un subconjunto más
 pequeño debido a la presencia de muchos valores NA (esto debido a la
 alta mortalidad que presentan los pacientes con cáncer), presenta una
 forma muy similar: un claro sesgo hacia la derecha y mayor concentración
@@ -599,6 +295,8 @@ La menor cantidad total de observaciones hace que las barras sean más
 variables y que la forma no se vea tan suave, pero la tendencia general
 se mantiene: hay pocos casos en edades muy jóvenes (\<20) y muy pocos
 casos por encima de los 60 años.
+
+![Histograma de edades](../res/Histograma_edad.pdf){width=60%}
 
 Ambos histogramas reflejan una tendencia consistente:
 
@@ -625,11 +323,11 @@ la prueba de Shapiro–Wilk. En los tres casos se obtuvo un valor de $p$
 extremadamente pequeño ($p<0.05$), indicando que ninguna de las
 variables sigue una distribución normal:
 
-$W_($Age$)=0.929 , p=1.3×10⁻⁹$
+$W_{\text{Age}} = 0.929,\; p = 1.3\times 10^{-9}$
 
-$W_($Age_at_diagnnosis$)=0.916, p<2.2×10⁻¹⁶$
+$W_{\text{Age\_at\_diagnosis}} = 0.916,\; p < 2.2\times 10^{-16}$
 
-$W_($TCGA_ICGC_GENIE_count$)=0.653, p<2.2×10⁻¹⁶$
+$W_{\text{TCGA\_ICGC\_GENIE\_count}} = 0.653,\; p < 2.2\times 10^{-16}$
 
 Dado que las variables no cumplen el supuesto de normalidad (y
 considerando además que el conteo es una variable discreta) se utilizó
@@ -640,7 +338,7 @@ consorcios TCGA, ICGC y GENIE.
 En primer lugar, la correlación entre la edad (Age) y el conteo
 combinado de mutaciones (TCGA_ICGC_GENIE_count) no fue significativa:
 
-$\rho=0.073, p=0.246$
+$\rho = 0.073,\; p = 0.246$
 
 El valor de $\rho$, cercano a cero, indica que no existe una relación
 relevante entre la edad del paciente y la cantidad de mutaciones
@@ -650,7 +348,7 @@ Por otro lado, se evaluó la correlación entre la edad al diagnóstico
 (Age_at_diagnosis) y el mismo conteo. En este caso se obtuvo un
 coeficiente negativo muy pequeño:
 
-$\rho=−0.077,p=0.011$
+$\rho = -0.077,\; p = 0.011$
 
 Aunque la asociación es estadísticamente significativa, la magnitud del
 coeficiente es extremadamente baja, lo que indica que la relación
@@ -675,7 +373,7 @@ ambas variables.
 
 Para la variable Age_at_diagnosis, aunque la línea de tendencia presenta
 una leve pendiente negativa, la dispersión sigue siendo elevada,
-indicando que la relación es muy débil. Esto coincide con el valor de ρ
+indicando que la relación es muy débil. Esto coincide con el valor de $\rho$
 obtenido en la correlación, que muestra una asociación estadísticamente
 significativa pero prácticamente irrelevante.
 
@@ -971,3 +669,6 @@ Ott, R. L., & Longnecker, M. (2016). *An Introduction to Statistical Methods and
 Soto Flores, W. (2015). Cáncer de mama. *Revista Médica de Costa Rica y
 Centroamérica*, (617), 799-802.
 <https://www.binasss.sa.cr/revistas/rmcc/617/art20.pdf>
+
+
+
