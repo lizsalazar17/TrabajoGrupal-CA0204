@@ -168,11 +168,11 @@ La unidad estadística se define en cada uno de los individuos que padecen o pos
 
 ## **Estadísticas Descriptivas de la Edad**
 
-Edad promedio: `r round(mean(base.de.datos$Age, na.rm = TRUE),1)` Edad mediana: `r round(median(base.de.datos$Age, na.rm = TRUE),1)` Edad máxima: `r round(max(base.de.datos$Age, na.rm = TRUE),1)` Edad mínima: `r round(min(base.de.datos$Age, na.rm = TRUE),1)`
+Edad promedio: 34 años. Edad mediana: 33 años. Edad máxima: 94 años. Edad mínima: 1 año
 
-Primer cuartil: `r round(quantile(base.de.datos$Age, 0.25, na.rm = TRUE),1)` Segundo cuartil: `r round(quantile(base.de.datos$Age, 0.50, na.rm = TRUE),1)` Tercer cuartil: `r round(quantile(base.de.datos$Age, 0.75, na.rm = TRUE),1)`
+Primer cuartil: 19 años. Segundo cuartil: 33 años. Tercer cuartil: 47 años.
 
-Desviación estándar: `r round(sd(base.de.datos$Age, na.rm = TRUE),1)` Varianza: `r round(var(base.de.datos$Age, na.rm = TRUE),1)` IQR: `r round(IQR(base.de.datos$Age, na.rm = TRUE),1)`
+Desviación estándar: 19.2 años. Varianza: 369 años IQR: 28 años
 
 ## Relación de edad al diagnóstico y mutaciones más frecuentes
 
@@ -300,7 +300,7 @@ Se identifican dos aspectos principales. En primer lugar, la presencia de valore
 
 -   $H_1$: Las mutaciones más frecuentes del gen TP53 se concentran en individuos diagnosticados entre los 30 y 50 años.
 
-Basados en los resultados obtenidos en el gráfico boxplot, se puede llegar a la conclusión de que el rango de edad concentrado entre los 55 y 20 años, con mayores frecuencias entre los 30 y 40 años. Por otro lado se obtuvo que la edad promedio fue `r round(mean(base.de.datos$Age, na.rm = TRUE),1)`, mientras que la mediana de `r round(median(base.de.datos$Age, na.rm = TRUE),1)`, lo que indica que no hay un sesgo a edades muy jóvenes o muy avanzadas; también se puede decir que, en general las mutaciones del gen TP53 no está en gran medida en pacientes de más de 50 años, sino que se está concentrando en edades de menos de 50.
+Basados en los resultados obtenidos en el gráfico boxplot, se puede llegar a la conclusión de que el rango de edad concentrado entre los 55 y 20 años, con mayores frecuencias entre los 30 y 40 años. Por otro lado se obtuvo que la edad promedio fue de 34 años, mientras que la mediana de 33 años, lo que indica que no hay un sesgo a edades muy jóvenes o muy avanzadas; también se puede decir que, en general las mutaciones del gen TP53 no está en gran medida en pacientes de más de 50 años, sino que se está concentrando en edades de menos de 50.
 
 Además, se obtuvo que la mutación más frecuente fue la del identificador 4585 con 314 observaciones, representando un 6.754% del total de observaciones, casi el doble que la mutación en el segundo lugar, la cual tiene el identificador 2143 con 180 observaciones, que representa un 3.872%, y la tercer mutación con mayor frecuencia fue el 3236 con 160 observaciones, representando un 3.442% del total de mutaciones.
 
@@ -311,7 +311,7 @@ Además, se obtuvo que la mutación más frecuente fue la del identificador 4585
 El análisis mediante Kruskal–Wallis mostró que algunas mutaciones del gen TP53 sí presentan diferencias significativas en la edad al diagnóstico, evidenciando que la distribución por edad no es homogénea entre las mutaciones más frecuentes.
 Los análisis post-hoc identificaron mutaciones asociadas a diagnósticos más tardíos (4585 y 2242) y otras relacionadas con diagnósticos tempranos (2705, 3297 y 3294). Esto respalda parcialmente la hipótesis, ya que la relación solo aparece en ciertos tipos de mutación.
 
-Por otro lado, el análisis correlacional con la variable sustituta TCGA_ICGC_GENIE_count mostró que ni la edad ni la edad al diagnóstico explican la cantidad de mutaciones reportadas por los consorcios internacionales. Aunque la correlación con la edad al diagnóstico fue estadísticamente significativa, su magnitud fue extremadamente débil (ρ = –0.077), por lo que carece de utilidad práctica.
+Por otro lado, el análisis correlacional con la variable sustituta TCGA_ICGC_GENIE_count mostró que ni la edad ni la edad al diagnóstico explican la cantidad de mutaciones reportadas por los consorcios internacionales. Aunque la correlación con la edad al diagnóstico fue estadísticamente significativa, su magnitud fue extremadamente débil ($\rho$ = –0.077), por lo que carece de utilidad práctica.
 
 Por lo tanto, con base en estos resultados, la hipótesis H2 no puede considerarse apoyada, al menos desde la perspectiva del análisis correlacional asignado. Los datos sugieren que la edad al diagnóstico no está asociada de manera relevante con la frecuencia de mutaciones observadas, por lo que otros factores biológicos, genéticos o clínicos podrían ser más determinantes en la variabilidad mutacional.
 
