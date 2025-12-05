@@ -44,37 +44,31 @@ format:
 editor: visual
 ---
 
-# Resumen (Abstract)
-
 # Introducción
 
-El gen TP53, ampliamente reconocido en el campo médico por su desempeño en la supresión tumoral, pertenece al conjunto de genes que de acuerdo con López et al. (2001), están implicados en diversos procesos de división celular, dentro de ellos la regulación de la expresión génica, el control del ciclo celular, la programación de la muerte celular y la estabilidad del genoma, es decir, la capacidad de la célula para mantener su material genético sin modificaciones a lo largo del tiempo. El gen mencionado inicialmente tiene múltiples funciones, puesto que además de influir en el control del ciclo celular, también se involucra en la integridad del ADN así como en la supervivencia de las células expuestas a agentes que dañan el mismo.
+El gen TP53 es un supresor tumoral esencial involucrado en procesos como la regulación génica, el control del ciclo celular, la apoptosis y la estabilidad del genoma, según López et al. (2001). Además, participa en el mantenimiento de la integridad del ADN y en la supervivencia celular ante agentes dañinos. Cuando este gen se altera, aumenta significativamente el riesgo de cáncer: si la proteína p53 está mutada, el ciclo celular no se detiene pese al daño en el ADN, lo que provoca proliferación celular descontrolada y la formación de tumores. Patiño et al. (2004) señalan que TP53 está alterado en cerca del 60 % de los tumores y que alrededor de 2.4 millones de los casos de cáncer anuales se deben a mutaciones en este gen.
 
-A pesar de sus múltiples funciones beneficiosas para el cuerpo humano, su respectiva alteración transfiere un riesgo muy elevado al desarrollo del cáncer. Bajo condiciones normales, cuando se produce un daño en el ADN, el gen TP53 detiene el ciclo celular, no obstante, en caso de que la proteína p53 esté mutada, el ciclo celular continúa y el ADN dañado se replica; en consecuencia, se produce una proliferación celular descontrolada\footnote{ La proliferación celular descontrolada consiste en el crecimiento y la división de las células a una velocidad anormal, sin responder a las señales de detención o muerte celular.}, lo cual desemboca en tumores cancerosos. Respecto a lo anterior, Patiño et al. (2004, p. 88) agregan que este gen "se encuentra alterado en cerca del 60% de todos los tipos de tumores", asimismo, estiman que "aproximadamente de los 6.5 millones de casos de cáncer informados anualmente en el mundo, 2.4 millones de los mismos ocurren por mutaciones de dicho gen".
-
-En conocencia de lo expuesto en los párrafos anteriores, se propone el estudio de la expresión del gen versado, en el tejido mamario de los pacientes y de las personas en riesgo de cáncer de pecho, el cual "es el tipo de cáncer más frecuente y la causa más común de muerte por cáncer en mujeres a nivel mundial" (Organización Panamericana de la Salud, s.f.). Asimismo, se formula un análisis segmentado por grupos etarios: la adolescencia, que comprende de los 12 a los 18 años; la juventud, que agrupa a los individuos de entre 19 y 30 años; la adultez, que va de los 30 a los 60 años y finalmente la vejez, de 60 años en adelante.
+Con base en lo anterior, se propone estudiar su expresión en el tejido mamario, dado que el cáncer de mama “es el tipo de cáncer más frecuente y la causa más común de muerte por cáncer en mujeres” (Organización Panamericana de la Salud, s.f.). El análisis se realizará por grupos etarios: adolescencia (12–18), juventud (19–30), adultez (30–60) y vejez (60+).
 
 # Delimitación del tema
 
-El proyecto se delimita en torno a dos ejes temáticos que se fusionan: el gen TP53 y el cáncer de pecho. De esta forma, se vincula la presencia del primero con el desarrollo del segundo. Asimismo, el trabajo se segmentará en los grupos etarios definidos previamente.
+El proyecto se centra en la relación entre el gen TP53 y el cáncer de mama, analizando cómo la presencia o alteración del primero puede influir en el desarrollo del segundo. El estudio se organiza según los grupos etarios previamente definidos.
 
-Por otro lado, en un primer momento se analizarán las expresiones del gen TP53 en el tejido mamario de pacientes y de personas en riesgo de cáncer de pecho, a partir de la base internacional seleccionada. Una vez contruidas las conclusiones pertinentes, las mismas se trasladarán al escenario costarricense mediante el acceso a la base de datos del Ministerio de Salud relacionada al recuento de personas portadoras de cáncer de pecho. Lo anterior con el objetivo de formular ciertas hipótesis sobre el vínculo existente entre la expresión del gen mencionado y el desarrollo del cáncer de pecho en Costa Rica.
+Primero, se examinarán los niveles de expresión del gen TP53 en tejido mamario de pacientes y personas en riesgo, utilizando una base de datos internacional. Luego, las conclusiones obtenidas se aplicarán al contexto costarricense mediante datos del Ministerio de Salud sobre casos de cáncer de mama, con el fin de plantear hipótesis sobre la posible relación entre la expresión de TP53 y la incidencia de esta enfermedad en Costa Rica.
 
 # Justificación
 
-El estudio del gen TP53 es de vital importancia para la comprensión de los mecanismos moleculares del cáncer de mama. Las mutaciones en este gen pueden conducir a una proliferación celular descontrolada y a la pérdida de la función supresora tumoral, incrementando el riesgo de malignidad. Analizar su expresión por grupos etarios permitirá identificar patrones que podrían asociarse a factores de riesgo biológicos o ambientales específicos.
+El análisis del gen TP53 es esencial para comprender los mecanismos moleculares del cáncer de mama, ya que sus mutaciones pueden generar proliferación celular descontrolada y aumentar el riesgo de malignidad. Evaluar su expresión según grupos etarios permite identificar posibles patrones vinculados a factores biológicos o ambientales.
 
-Además, la comparación con datos del Ministerio de Salud de Costa Rica ofrece la posibilidad de contextualizar los hallazgos en la realidad nacional, contribuyendo al diseño de estrategias de prevención y detección temprana más precisas.
+Asimismo, contrastar estos resultados con los datos del Ministerio de Salud de Costa Rica permite contextualizar los hallazgos en el ámbito nacional y apoyar el desarrollo de estrategias más efectivas de prevención y detección temprana.
 
-# Fundamentación del proyecto
+# Objetivos
 
-## Objetivos
-
-### Objetivo general
+## Objetivo general
 
 Analizar la expresión y frecuencia de las mutaciones del gen TP53 en el tejido mamario de pacientes y personas en riesgo de desarrollar cáncer de pecho, diferenciando los resultados por grupos etarios.
 
-### Objetivos específicos
+## Objetivos específicos
 
 -   Identificar las mutaciones más frecuentes del gen TP53 presentes en el tejido mamario de los individuos analizados.
 
@@ -82,17 +76,13 @@ Analizar la expresión y frecuencia de las mutaciones del gen TP53 en el tejido 
 
 -   Determinar la relación existente entre los tipos de mutación y la edad al diagnóstico.
 
--   Comparar la prevalencia de casos según las regiones geográficas y consorcios internacionales de origen.
+# Hipótesis
 
--   Formular hipótesis preliminares sobre la posible correlación entre las alteraciones del gen TP53 y la incidencia de cáncer de pecho en Costa Rica, a partir de los registros del Ministerio de Salud.
-
-## Hipótesis
-
-### Hipótesis general:
+## Hipótesis general:
 
 La expresión del gen TP53 en el tejido mamario presenta variaciones significativas según el grupo etario, siendo más frecuentes las mutaciones en adultos jóvenes y adultos medios.
 
-Esta tendencia ha sido observada en múltiples estudios donde se reporta que las mutaciones somáticas y germinales de TP53 aparecen con mayor prevalencia en mujeres diagnosticadas a edades tempranas, particularmente menores de 40 años (Evans et al., 2020; Li et al., 2025; Kwong et al., 2020). Asimismo, se ha documentado que aproximadamente el 30 % de los cánceres de mama muestran mutaciones en este gen, lo que justifica su análisis detallado en cohortes estratificadas por edad (Silwal-Pandit et al., 2014; Hwang et al., 2024).
+Diversos estudios han mostrado que las mutaciones somáticas y germinales del gen TP53 son más frecuentes en mujeres diagnosticadas con cáncer de mama a edades tempranas, especialmente menores de 40 años (Evans et al., 2020; Li et al., 2025; Kwong et al., 2020). Además, se ha reportado que alrededor del 30 % de los cánceres de mama presentan mutaciones en este gen, lo que respalda la importancia de analizarlo en cohortes estratificadas por edad (Silwal-Pandit et al., 2014; Hwang et al., 2024).
 
 ## Hipótesis específicas:
 
@@ -112,45 +102,31 @@ Estas hipótesis se generaron de acuerdo a lo estipulado por la evidencia cient�
 
 # Marco metodológico
 
-El presente estudio se desarrollará bajo un enfoque cuantitativo de tipo descriptivo. Su propósito será analizar cómo varía la expresión y la frecuencia de las mutaciones del gen TP53 en el tejido mamario de pacientes y personas en riesgo de desarrollar cáncer de pecho, tomando en cuenta los diferentes grupos etarios. Este diseño permitirá observar las relaciones existentes entre variables genéticas, demográficas y clínicas sin manipularlas directamente, centrándose en la descripción, comparación y correlación de los datos obtenidos (Hernández-Sampieri & Mendoza, 2018).
+El estudio se desarrollará con un enfoque cuantitativo descriptivo, cuyo objetivo es analizar cómo varían la expresión y la frecuencia de las mutaciones del gen TP53 en tejido mamario según grupos etarios, sin manipular las variables, centrándose en su descripción, comparación y correlación (Hernández-Sampieri & Mendoza, 2018).
 
-La investigación se basará en el uso de bases de datos secundarias de carácter público y científico. La principal fuente será la base internacional The TP53 Dataset (versión R21), desarrollada por el Instituto Nacional de Cáncer de los Estados Unidos, la cual contiene información sobre más de 29,000 variantes tumorales y más de 2,000 individuos con mutaciones confirmadas en el gen TP53 (Bouaoun et al., 2016). De esta base se seleccionarán los registros cuya topografía corresponda al tejido mamario, a fin de centrar el análisis en los casos de cáncer de mama. Complementariamente, se considerarán los registros nacionales provenientes del Ministerio de Salud de Costa Rica (2022), con el objetivo de contrastar los hallazgos internacionales con la incidencia local del cáncer de mama.
+La investigación utilizará bases de datos secundarias, principalmente *The TP53 Dataset* (versión R21), que reúne información sobre miles de variantes y casos con mutaciones confirmadas (Bouaoun et al., 2016), seleccionando únicamente los datos correspondientes al tejido mamario. De forma complementaria, se emplearán los registros del Ministerio de Salud de Costa Rica (2022) para contrastar los hallazgos internacionales con la incidencia local del cáncer de mama.
 
-En una primera etapa, se aplicarán estadísticas descriptivas con el fin de caracterizar la población en estudio. Se calcularán medidas de tendencia central (media, mediana y moda) y de dispersión (desviación estándar y rango intercuartílico) para variables como la edad al diagnóstico y la frecuencia de casos reportados. Asimismo, se elaborarán tablas de frecuencia, histogramas y diagramas de caja, que permitirán visualizar la distribución de las edades, la variación de las mutaciones y la presencia de posibles valores atípicos. Este análisis inicial ayudará a comprender la composición general de la muestra y a detectar patrones preliminares en la distribución de las mutaciones según la edad (Ott & Longnecker, 2016).
+En una primera fase se aplicarán estadísticas descriptivas —medidas de tendencia central y dispersión, tablas de frecuencia, histogramas y diagramas de caja— para caracterizar la población y detectar patrones preliminares en la distribución de mutaciones según la edad (Ott & Longnecker, 2016).
 
-Posteriormente, se llevará a cabo un análisis comparativo entre grupos, con el propósito de determinar si existen diferencias significativas en la edad al diagnóstico según el tipo de mutación del gen TP53. Para ello se aplicará una prueba de análisis de varianza (ANOVA), en caso de que los datos cumplan con los supuestos de normalidad y homogeneidad de varianzas (Montgomery, 2017). Si dichos supuestos no se cumplen, se recurrirá a la prueba no paramétrica de Kruskal–Wallis, la cual permitirá contrastar las medianas de edad entre grupos sin asumir una distribución normal (Gibbons & Chakraborti, 2011). Este análisis facilitará identificar si ciertos tipos de mutación se asocian a edades de diagnóstico más tempranas o tardías.
+Luego se realizará una comparación entre grupos mediante ANOVA, siempre que los datos cumplan los supuestos requeridos (Montgomery, 2017); en caso contrario, se utilizará la prueba no paramétrica de Kruskal–Wallis (Gibbons & Chakraborti, 2011). Este análisis permitirá determinar si existen diferencias significativas en la edad al diagnóstico según el tipo de mutación del gen TP53.
 
-Además, se aplicarán análisis de correlación con el fin de evaluar la relación existente entre la edad al diagnóstico (Age_at_diagnosis) y el número de casos reportados por los principales consorcios internacionales (TCGA, ICGC y GENIE). Dependiendo de la distribución de los datos, se utilizarán los coeficientes de correlación de Pearson (para datos normales) o Spearman (para datos no normales) (Benesty et al., 2009). Estos análisis permitirán establecer si la edad al diagnóstico se relaciona de manera significativa con la frecuencia o severidad de las mutaciones del gen TP53, aportando evidencia empírica a la hipótesis de que la edad influye en la expresión de dicho gen.
+También se efectuarán análisis de correlación entre la edad al diagnóstico (Age_at_diagnosis) y el número de casos reportados por consorcios como TCGA, ICGC y GENIE, aplicando correlaciones de Pearson o Spearman según la distribución de los datos (Benesty et al., 2009). Con ello se busca establecer si la edad se relaciona con la frecuencia o severidad de las mutaciones.
 
-Asimismo, se llevará a cabo un análisis de frecuencias y proporciones para determinar la incidencia relativa de las mutaciones por grupo etario y por tipo de mutación. Esta técnica permitirá identificar cuáles grupos de edad presentan mayor prevalencia de mutaciones en el gen TP53, lo que resultará clave para establecer patrones de riesgo y posibles implicaciones clínicas (Agresti, 2018).
+Asimismo, se analizarán frecuencias y proporciones para identificar la incidencia relativa de cada tipo de mutación por grupo etario, lo cual permitirá reconocer patrones de riesgo relevantes (Agresti, 2018).
 
-Antes de aplicar los procedimientos inferenciales, se realizará una limpieza y depuración de los datos (Esta se trabajó previamente en la Bitácora 2). Este proceso incluirá la identificación de valores faltantes, que serán tratados mediante eliminación o imputación según su relevancia; la detección de valores atípicos a través del rango intercuartílico (IQR), para garantizar la coherencia interna del conjunto de datos (Field, 2018). Este paso será fundamental para asegurar la calidad y fiabilidad de los análisis posteriores.
+Previo a los análisis inferenciales, se realizará una limpieza y depuración de datos, incluyendo el tratamiento de valores faltantes y la detección de atípicos mediante el IQR, para asegurar la calidad del conjunto de datos (Field, 2018).
 
-De este modo, cada método estadístico aportará evidencia específica para responder la pregunta de investigación:
+Cada técnica aportará información complementaria: la estadística descriptiva mostrará la distribución de edades y mutaciones; ANOVA/Kruskal–Wallis revelarán diferencias significativas entre grupos; las correlaciones permitirán evaluar la relación entre edad y frecuencia de mutaciones; y las frecuencias identificarán los grupos con mayor incidencia.
 
--   Los análisis descriptivos permitirán conocer cómo se distribuyen la edad y las mutaciones del gen TP53.
-
--   Las pruebas de comparación (ANOVA/Kruskal–Wallis) identificarán si existen diferencias significativas en la edad de diagnóstico según el tipo de mutación.
-
--   Los análisis de correlación mostrarán si existe una relación entre la edad y la frecuencia de mutaciones reportadas.
-
--   Finalmente, el análisis de frecuencias permitirá observar la incidencia relativa de las mutaciones en cada grupo etario.
-
-Posteriormente, se llevará a cabo un análisis comparativo entre regiones geográficas, tomando como base la variable Country de la base internacional. Se describirá la distribución de mutaciones del gen TP53 en diferentes países y regiones, con especial énfasis en América Latina. Esta información se contrastará cualitativamente con la base de datos del Ministerio de Salud de Costa Rica, para explorar si los patrones internacionales guardan relación con las tasas de incidencia y mortalidad por cáncer de mama en la población costarricense. Aunque no se establecerán correlaciones estadísticas directas entre ambas bases debido a la diferencia en el tipo de información, este ejercicio permitirá contextualizar los resultados globales en el ámbito nacional, y formular hipótesis sobre la posible prevalencia de mutaciones similares en el país.
+Finalmente, estos patrones se contrastarán cualitativamente con los datos del Ministerio de Salud para contextualizar los resultados globales en Costa Rica y formular hipótesis sobre la posible prevalencia local, sin establecer correlaciones estadísticas directas por las diferencias entre ambas bases.
 
 ## Bases de datos
 
-La principal base de datos a utilizarse corresponde a la proporcionada por el Instituto Nacional de Cáncer en Estados Unidos: "The TP53 Dataset, R21". La versión R21 es la más reciente, se actualizó en enero de 2025. Este recurso contiene alrededor de 29,900 variantes de tumores, más de 2,155 individuos con variantes del gen *TP53* confirmadas y datos funcionales sobre más de 9,000 proteínas mutantes. En particular, la información se filtrará y se tomará únicamente aquella en donde la morfología coincida con los pechos, es decir, que las anormalidades se presenten en el área estipulada.
+La principal fuente de información será *The TP53 Dataset*, versión R21, desarrollada por el Instituto Nacional de Cáncer de Estados Unidos y actualizada en enero de 2025. Esta base contiene cerca de 29,900 variantes tumorales, más de 2,155 individuos con mutaciones confirmadas en *TP53* y datos funcionales sobre más de 9,000 proteínas mutantes. Para este estudio, se filtrará únicamente la información cuya morfología corresponda al tejido mamario.
 
-En el caso de Costa Rica, la base de datos del Ministerio de Salud se utilizará en una vía mayormente cualitativa, orientada a la formulación de hipótesis significativas en la materia. Dicha herramienta se titula: "Incidencia de tumores malignos diferentes características" y su versión más reciente corresponde a la del año 2022; asimismo, segmenta el recuento por sexo y rangos de edad.
+En el caso de Costa Rica, se utilizará la base del Ministerio de Salud (2022) titulada Incidencia de tumores malignos: diferentes características, la cual segmenta los casos por sexo y grupos etarios. Su función será principalmente cualitativa, orientada a formular hipótesis sobre la relación entre TP53 y el cáncer de mama en la población nacional.
 
-Primeramente, se va a realizar un filtro para obtener las columnas y filas de interés de la base de datos internacional, como se muestra a continuación. Se trabajará con la misma a partir de aquí.
-
-En primera instancia, es primordial resaltar que la tabla de datos encargada de solventar la mayor parte del proyecto es aquella que se genera a partir de la base de datos internacional, ya que con ella se busca determinar tendencias en las expresiones del gen TP53 presentes en el tejido mamario de pacientes o personas que potencialmente podrían desarrollar cáncer de pecho. En contraste, tal como se mencionó antes, los datos extendidos por el Ministerio de Salud de Costa Rica se emplearán desde un enfoque cualitativo, de forma que estos contribuyan en la formulación de hipótesis relacionadas a dicho tema para la población nacional. En motivo de lo anterior, el presente apartado además de los sucesores, se apoyarán solo en la tabla de información filtrada de la base de datos internacional.
-
-De esta forma, se emplearon dos paramétros clave para filtrar la tabla de datos: el primero se basó en la utilidad de las variables de estudio para el proyecto y el segundo consistió en que la topografía fuera igual en todos los casos al área del pecho, es decir, que los padecimientos se situaran en el sector mencionado. A partir de ello, se generó una tabla de datos que contiene la información de 1,153 pacientes en su mayoría del sexo femenino, de nacionalidades variadas y con edades que oscilan entre los 14 y los 90 años.
-
-La totalidad de la información fue recolectada por el Instituto Nacional de Cáncer de Estados Unidos y la última actualización de la base de datos fue en enero de 2025. Tales actualizaciones, especialmente las que conciernen a las variantes del gen TP53, se sustentan de los datos reportados en la literatura médica publicada, al igual que de otras bases de datos públicas.
+El análisis se fundamentará en la tabla derivada de la base internacional, tras un proceso de filtrado por relevancia de variables y por topografía igual a tejido mamario. Este procedimiento generó un conjunto de 1,153 pacientes, mayoritariamente mujeres, con edades entre 14 y 90 años y de diversas nacionalidades. Dado que esta base se actualiza con información proveniente de literatura médica y de otros repositorios públicos, constituye la fuente cuantitativa central del proyecto, mientras que los datos nacionales servirán únicamente como complemento contextual.
 
 ### **Población de estudio**
 
@@ -216,7 +192,7 @@ El eje vertical permite observar que mutación presenta un diagnóstico mayor re
 
 Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, al compararse con las mutaciones 3294, 3297, 2705 y 2143. Además, se encontró que las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas al compararse con 2242.
 
-![Diferencia de rangos y comparación entre mutaciones](../res/Forest_plot.png){width="60%"}
+![Diferencia de rangos y comparación entre mutaciones](../res/Forest_plot.pdf){width="60%"}
 
 ## Distribución de edades y edades al diagnóstico
 

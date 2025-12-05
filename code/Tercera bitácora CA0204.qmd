@@ -181,6 +181,7 @@ base.datos.cr.femenino.provincias <- read_excel(here("data", "base_cr.xlsx"), 3)
 View(base.datos.cr.femenino)
 View(base.datos.cr.femenino.provincias)
 View(base.datos.cr.masculino)
+View(base.de.datos)
 
 base.de.datos.filtrada <- base.de.datos %>% 
   select(Country, Population, Region, Germline_mutation, 
