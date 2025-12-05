@@ -210,13 +210,7 @@ La menor cantidad total de observaciones hace que las barras sean más variables
 
 Ambos histogramas reflejan una tendencia consistente:
 
--   La mayoría de los diagnósticos se dan en personas entre 25 y 40 años.
-
--   La distribución presenta una cola hacia la derecha, indicando sesgo positivo.
-
--   No se observa una distribución normal.
-
--   La presencia de NA afecta la claridad del segundo histograma, pero no modifica la tendencia central.
+La mayoría de los diagnósticos se dan en personas entre 25 y 40 años. La distribución presenta una cola hacia la derecha, indicando sesgo positivo. No se observa una distribución normal. La presencia de NA afecta la claridad del segundo histograma, pero no modifica la tendencia central.
 
 Estos patrones apoyan parcialmente la hipótesis de que las alteraciones del gen TP53 en tejido mamario tienden a concentrarse en grupos etarios relativamente jóvenes.
 
@@ -230,19 +224,9 @@ $W_{\text{Age\_at\_diagnosis}} = 0.916,\; p < 2.2\times 10^{-16}$
 
 $W_{\text{TCGA\_ICGC\_GENIE\_count}} = 0.653,\; p < 2.2\times 10^{-16}$
 
-Dado que las variables no cumplen el supuesto de normalidad (y considerando además que el conteo es una variable discreta) se utilizó el coeficiente de correlación de Spearman ($\rho$) para analizar la relación entre la edad y el número de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE.
+Dado que las variables no cumplen el supuesto de normalidad se utilizó el coeficiente de correlación de Spearman ($\rho$) para analizar la relación entre la edad y el número de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE.
 
-En primer lugar, la correlación entre la edad (Age) y el conteo combinado de mutaciones (TCGA_ICGC_GENIE_count) no fue significativa:
-
-$\rho = 0.073,\; p = 0.246$
-
-El valor de $\rho$, cercano a cero, indica que no existe una relación relevante entre la edad del paciente y la cantidad de mutaciones reportadas por los consorcios.
-
-Por otro lado, se evaluó la correlación entre la edad al diagnóstico (Age_at_diagnosis) y el mismo conteo. En este caso se obtuvo un coeficiente negativo muy pequeño:
-
-$\rho = -0.077,\; p = 0.011$
-
-Aunque la asociación es estadísticamente significativa, la magnitud del coeficiente es extremadamente baja, lo que indica que la relación (aunque detectable debido al tamaño de la muestra) carece de relevancia práctica. En términos reales, la edad al diagnóstico apenas se relaciona con el número de mutaciones reportadas.
+En primer lugar, la correlación entre la edad (Age) y el conteo combinado de mutaciones (TCGA_ICGC_GENIE_count) no fue significativa: $\rho = 0.073,\; p = 0.246$. El valor de $\rho$, cercano a cero, indica que no existe una relación relevante entre la edad del paciente y la cantidad de mutaciones reportadas por los consorcios. Por otro lado, se evaluó la correlación entre la edad al diagnóstico (Age_at_diagnosis) y el mismo conteo. En este caso se obtuvo un coeficiente negativo muy pequeño: $\rho = -0.077,\; p = 0.011$. Aunque la asociación es estadísticamente significativa, la magnitud del coeficiente es extremadamente baja, lo que indica que la relación (aunque detectable debido al tamaño de la muestra) carece de relevancia práctica. En términos reales, la edad al diagnóstico apenas se relaciona con el número de mutaciones reportadas.
 
 En conjunto, ambos análisis sugieren que ni la edad ni la edad al diagnóstico se asocian de manera consistente o relevante con el conteo de mutaciones TP53 provenientes de los consorcios TCGA, ICGC y GENIE.
 
