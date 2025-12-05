@@ -44,6 +44,10 @@ format:
 editor: visual
 ---
 
+```{r, echo = FALSE}
+library(here)
+```
+
 # Introducción
 
 El gen TP53 es un supresor tumoral esencial involucrado en procesos como la regulación génica, el control del ciclo celular, la apoptosis y la estabilidad del genoma, según López et al. (2001). Además, participa en el mantenimiento de la integridad del ADN y en la supervivencia celular ante agentes dañinos. Cuando este gen se altera, aumenta significativamente el riesgo de cáncer: si la proteína p53 está mutada, el ciclo celular no se detiene pese al daño en el ADN, lo que provoca proliferación celular descontrolada y la formación de tumores. Patiño et al. (2004) señalan que TP53 está alterado en cerca del 60 % de los tumores y que alrededor de 2.4 millones de los casos de cáncer anuales se deben a mutaciones en este gen.
@@ -292,8 +296,7 @@ Además, se obtuvo que la mutación más frecuente fue la del identificador 4585
 
 -   $H_2$: Existe una relación significativa entre el tipo de mutación (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
 
-El análisis mediante Kruskal–Wallis mostró que algunas mutaciones del gen TP53 sí presentan diferencias significativas en la edad al diagnóstico, evidenciando que la distribución por edad no es homogénea entre las mutaciones más frecuentes.
-Los análisis post-hoc identificaron mutaciones asociadas a diagnósticos más tardíos (4585 y 2242) y otras relacionadas con diagnósticos tempranos (2705, 3297 y 3294). Esto respalda parcialmente la hipótesis, ya que la relación solo aparece en ciertos tipos de mutación.
+El análisis mediante Kruskal–Wallis mostró que algunas mutaciones del gen TP53 sí presentan diferencias significativas en la edad al diagnóstico, evidenciando que la distribución por edad no es homogénea entre las mutaciones más frecuentes. Los análisis post-hoc identificaron mutaciones asociadas a diagnósticos más tardíos (4585 y 2242) y otras relacionadas con diagnósticos tempranos (2705, 3297 y 3294). Esto respalda parcialmente la hipótesis, ya que la relación solo aparece en ciertos tipos de mutación.
 
 Por otro lado, el análisis correlacional con la variable sustituta TCGA_ICGC_GENIE_count mostró que ni la edad ni la edad al diagnóstico explican la cantidad de mutaciones reportadas por los consorcios internacionales. Aunque la correlación con la edad al diagnóstico fue estadísticamente significativa, su magnitud fue extremadamente débil ($\rho$ = –0.077), por lo que carece de utilidad práctica.
 
@@ -308,6 +311,40 @@ El análisis del escenario costarricense durante el año 2022 muestra que el sec
 Al comparar los resultados de Costa Rica durante el año 2022, con el comportamiento de expresión observado en las diez mutaciones más comunes del gen TP53, se identifican ciertas variaciones de acuerdo al rango etario bajo estudio, sin embargo, se determina que, de forma general que las expresiones mutacionales del gen TP53 no se presentan usualmente dentro de los rangos etarios en los cuales Costa Rica presenta la mayor incidencia. El análisis del boxplot, evidencia que para la totalidad de las diez mutaciones principales del gen, se cumple que el 50% de los datos centrales se sitúan por debajo de los 50 años, asimismo, son escasas las ocasiones en las que los bigotes alcanzan los rangos etarios de mayor incidencia para el escenario nacional durante el 2022. Así, la presencia de las mutaciones en los rangos especificados no es significativa y en su mayoría representa valores normales extremos o valores atípicos. En particular, en los grupos de 65 a 69 años y de 75 años en adelante, las mutaciones prácticamente tienden a no expresarse, a excepción de ciertos valores atípicos.
 
 En conjunto, estos hallazgos sugieren que no existe una fuerte concordancia entre las agrupaciones etarias que acumularon la mayor incidencia del cáncer de mama en Costa Rica y la distribución de las edades asociadas a las mutaciones más comunes del gen TP53: las mutaciones tienden a expresarse con mayor frecuencia en adultos jóvenes y adultos de mediana edad, mientras que en el contexto costarricense los casos se concentran en edades más avanzadas.
+
+\newpage
+
+# Anexos
+
+```{=latex}
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "correlacion_edad.pdf")}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "Correlacion_edad_diag.pdf")`}
+\end{minipage}
+\end{figure}
+```
+
+```{=latex}
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "Distribución_casos_CR_hombres.pdf")`}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "Distribución_casos_CR_mujeres.pdf")`}
+\end{minipage}
+\end{figure}
+```
 
 \newpage
 
