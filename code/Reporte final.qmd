@@ -308,23 +308,10 @@ Además, se obtuvo que la mutación más frecuente fue la del identificador 4585
 
 -   $H_2$: Existe una relación significativa entre el tipo de mutación (MUT_ID) y la edad al diagnóstico (Age_at_diagnosis).
 
-El análisis comparativo hecho por el método Kruskal-Wallis revela que que existen cierto tipos de mutaciones que se asocian a edades de diagnóstico tempranas y tardías, es decir, exisste una diferencia significativa entre algunos tipos de mutación del gen TP53. Esto indica que la distribucón por edad no es homogénea entre las mutaciones más frecuentes del gen.
+El análisis mediante Kruskal–Wallis mostró que algunas mutaciones del gen TP53 sí presentan diferencias significativas en la edad al diagnóstico, evidenciando que la distribución por edad no es homogénea entre las mutaciones más frecuentes.
+Los análisis post-hoc identificaron mutaciones asociadas a diagnósticos más tardíos (4585 y 2242) y otras relacionadas con diagnósticos tempranos (2705, 3297 y 3294). Esto respalda parcialmente la hipótesis, ya que la relación solo aparece en ciertos tipos de mutación.
 
-Tanto el análisis post-hoc que se usó luego de determinar el valor p de comparación general entre grupos y el gráfico forest plot, determinaron cuáles son las mutacioenes que tienden a diagnosticarse a una edad tardía respecto a los demás grupo, como lo son las mutaciones 4585 y 2242. También, revelaron las que teneden a asociarse a edades más tempranas que son las mutaciones 2705, 3297 y 3294.
-
-Estos resultados respaldan en parte la hipótesis 2, que plantea una relación significativa entre la edad al diagnóstico y el tipo de mutación del TP53, sin embargo, esta relación no está presente en todos los tipos de mutación del gen, por lo tanto, se necesita otra evidencia para respaldar totalmente esta hipótesis, considerando estudiar las mutaciones específicas que mostraron tendencias importantes.
-
-Aunque la hipótesis $H_2$ plantea una relación entre el tipo de mutación (MUT_ID) y la edad al diagnóstico, en esta sección se analiza una variable sustituta relacionada con la frecuencia mutacional (TCGA_ICGC_GENIE_count) para evaluar si existe una asociación entre la edad y la presencia o cantidad de mutaciones reportadas por los consorcios internacionales. Este análisis permite explorar parcialmente la hipótesis H2, identificando si la edad podría estar relacionada con la carga mutacional observada en los pacientes.
-
-El análisis de correlación realizado revela que la edad de los individuos no se asocia de manera relevante con el número de mutaciones del gen TP53 reportadas por los consorcios TCGA, ICGC y GENIE. Tanto los resultados numéricos como los gráficos de dispersión muestran que las variables presentan una relación prácticamente nula.
-
-Por otra parte, la edad al diagnóstico mostró una correlación estadísticamente significativa con el conteo de mutaciones ($p$ = 0.011); sin embargo, el coeficiente obtenido ($\rho$ = –0.077) indica que esta asociación es extremadamente débil y carece de importancia práctica. Esto sugiere que la edad al diagnóstico ejerce un efecto mínimo o inexistente en la cantidad de mutaciones registradas.
-
-En conjunto, estos resultados permiten concluir que la variabilidad en el conteo de mutaciones del gen TP53 no se explica por la edad ni por la edad al diagnóstico, lo que implica que otros factores clínicos, biológicos o ambientales podrían tener un papel más determinante en la frecuencia mutacional.
-
-A partir del análisis realizado, no se encontró evidencia sólida que respalde la hipótesis de que la edad al diagnóstico tiene una relación importante con la carga mutacional asociada a TP53. La correlación entre Age_at_diagnosis y el conteo combinado de mutaciones provenientes de los consorcios TCGA, ICGC y GENIE fue estadísticamente significativa ($\rho$ = –0.077, $p$ = 0.011); sin embargo, la magnitud del coeficiente es extremadamente baja, lo que indica que la relación, aunque detectable debido al tamaño de la muestra, no posee relevancia práctica.
-
-Además, la correlación entre la edad general (Age) y el conteo mutacional tampoco mostró significancia estadística ($\rho$ = 0.073, $p$ = 0.246), reforzando la idea de que la edad no explica la variación en la cantidad de mutaciones registradas.
+Por otro lado, el análisis correlacional con la variable sustituta TCGA_ICGC_GENIE_count mostró que ni la edad ni la edad al diagnóstico explican la cantidad de mutaciones reportadas por los consorcios internacionales. Aunque la correlación con la edad al diagnóstico fue estadísticamente significativa, su magnitud fue extremadamente débil (ρ = –0.077), por lo que carece de utilidad práctica.
 
 Por lo tanto, con base en estos resultados, la hipótesis H2 no puede considerarse apoyada, al menos desde la perspectiva del análisis correlacional asignado. Los datos sugieren que la edad al diagnóstico no está asociada de manera relevante con la frecuencia de mutaciones observadas, por lo que otros factores biológicos, genéticos o clínicos podrían ser más determinantes en la variabilidad mutacional.
 
