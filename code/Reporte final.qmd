@@ -216,6 +216,8 @@ El eje vertical permite observar que mutación presenta un diagnóstico mayor re
 
 Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, al compararse con las mutaciones 3294, 3297, 2705 y 2143. Además, se encontró que las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas al compararse con 2242.
 
+![Diferencia de rangos y comparación entre mutaciones](../res/Forest_plot.png){width="60%"}
+
 ## Distribución de edades y edades al diagnóstico
 
 El primer histograma muestra que la distribución de la edad al diagnóstico es asimétrica hacia la derecha (sesgo positivo). La mayoría de los casos se concentran entre los 25 y 40 años, con un pico marcado alrededor de los 30 años, lo que indica que este grupo etario es el más común en los registros disponibles.
@@ -282,8 +284,7 @@ Para la variable Age_at_diagnosis, aunque la línea de tendencia presenta una le
 
 Durante el año 2022 la población costarricense presentó una totalidad de 1232 casos de cáncer de mama, lo anterior con una particularidad: a partir del gráfico de la distribución de casos según el sexo para Costa Rica, se determina la existencia de una brecha considerable en la incidencia del cáncer de mama en las personas de sexo masculino respecto a las personas de sexo femenino; los masculinos presentaron únicamente seis casos, mientras que las féminas acumularon una cantidad de 1226 casos. El fenómeno descrito no corresponde a un hecho aislado, tal como menciona Soto Flores (2015) " el cáncer de mama es la causa líder de muerte en mujeres de países en vías de desarrollo y la segunda causa de muerte en países desarrollados, siendo segundo al cáncer de pulmón" (p. 799). Asimismo, este autor se refiere al escenario nacional: "dentro de la población costarricense el cáncer de mama es la causa más común de mortalidad en mujeres por neoplasia maligna" (p. 800).
 
-Del párrafo precedente se resalta un hecho importante, el cual consiste en que la mayoría de diagnósticos de cáncer de mama en el 2022 se presentaron en el sexo femenino, con un 99.51% del total.
-![Distribución de los casos por sexos: Costa Rica](../res/Distribucion_casos_CR_sexos.pdf){width="60%"}
+Del párrafo precedente se resalta un hecho importante, el cual consiste en que la mayoría de diagnósticos de cáncer de mama en el 2022 se presentaron en el sexo femenino, con un 99.51% del total. ![Distribución de los casos por sexos: Costa Rica](../res/Distribucion_casos_CR_sexos.pdf){width="60%"}
 
 ### Sexo masculino
 
