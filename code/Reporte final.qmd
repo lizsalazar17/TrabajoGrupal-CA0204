@@ -44,7 +44,7 @@ format:
 editor: visual
 ---
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
 library(here)
 ```
 
@@ -84,12 +84,12 @@ Analizar la expresión y frecuencia de las mutaciones del gen TP53 en el tejido 
 
 ## Hipótesis general:
 
-La expresión del gen TP53 en el tejido mamario presenta variaciones significativas según el grupo etario, siendo más frecuentes las mutaciones en adultos jóvenes y adultos medios.
-
-Diversos estudios han mostrado que las mutaciones somáticas y germinales del gen TP53 son más frecuentes en mujeres diagnosticadas con cáncer de mama a edades tempranas, especialmente menores de 40 años (Evans et al., 2020; Li et al., 2025; Kwong et al., 2020). Además, se ha reportado que alrededor del 30 % de los cánceres de mama presentan mutaciones en este gen, lo que respalda la importancia de analizarlo en cohortes estratificadas por edad (Silwal-Pandit et al., 2014; Hwang et al., 2024).
+La expresión del gen TP53 en el tejido mamario presenta variacione germinales del gen TP53 son más frecuentes en mujeres diagnosticadas con cáncer de mama a edades tempranas, especialmente menores de 40 años (Evans et al., 2020; Li et al., 2025; Kwong et al., 2020). Además, se ha reportado que alrededor del 30 % de los cánceres de mama presentan mutaciones en este gen, lo que respalda la importancia de analizarlo en cohortes estratificadas por edad (Silwal-Pandit et al., 2014; Hwang et al., 2024).
 
 ## Hipótesis específicas:
+s significativas según el grupo etario, siendo más frecuentes las mutaciones en adultos jóvenes y adultos medios.
 
+Diversos estudios han mostrado que las mutaciones somáticas y
 -   $H_1$: Las mutaciones más frecuentes del gen TP53 se concentran en individuos diagnosticados entre los 30 y 50 años.
 
 Esta hipótesis se fundamenta en el hecho de que varias investigaciones han reportado picos de incidencia y prevalencia de mutaciones TP53 en grupos etarios jóvenes y de mediana edad. Por ejemplo, Li et al. (2025) encontraron prevalencias mayores en pacientes de 30 años (menores o iguales) que en grupos de 31–40 años, y Kwong et al. (2020) reportaron edades de diagnóstico cercanas a los 27–30 años en portadoras de mutaciones germinales. Aunque los rangos exactos varían entre poblaciones, la evidencia coincide en una mayor frecuencia de mutaciones TP53 en edades anteriores a los 50 años, lo cual respalda la formulación de esta hipótesis.
@@ -132,41 +132,9 @@ En el caso de Costa Rica, se utilizará la base del Ministerio de Salud (2022) t
 
 El análisis se fundamentará en la tabla derivada de la base internacional, tras un proceso de filtrado por relevancia de variables y por topografía igual a tejido mamario. Este procedimiento generó un conjunto de 1,153 pacientes, mayoritariamente mujeres, con edades entre 14 y 90 años y de diversas nacionalidades. Dado que esta base se actualiza con información proveniente de literatura médica y de otros repositorios públicos, constituye la fuente cuantitativa central del proyecto, mientras que los datos nacionales servirán únicamente como complemento contextual.
 
-### **Población de estudio**
+### Variables de estudio
 
-La población de estudio incluye pacientes y personas con un riesgo elevado de desarrollar cáncer de pecho, con edades comprendidas entre los 14 y los 90 años, que además presentan expresiones del gen TP53 en el tejido mamario. Los datos de los individuos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025.
-
-### **Muestra observada**
-
-La muestra que se seleccionó está conformada por un total de 1,153 individuos de edades y nacionalidades variadas, cuyos datos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025. Tales sujetos poseen expresiones del gen TP53 en el tejido mamario, al mismo tiempo que son pacientes de cáncer de pecho o poseen un alto riesgo de contraerlo.
-
-### **Unidad estadística o individuos**
-
-La unidad estadística se define en cada uno de los individuos que padecen o poseen un alto riesgo de desarrollar cáncer de pecho, que muestran expresiones del gen TP53 en el tejido mamario y cuyos datos fueron recolectados por el Instituto Nacional de Cáncer de Estados Unidos en enero de 2025.
-
-### **Variables de estudio**
-
--   **País** (Country, cualitativa): país del que proviene la persona.
-
--   **Población** (Population, cualitativa): población de la que proviene la persona.
-
--   **Región** (Region, cualitativa): región de la que proviene la persona.
-
--   **Gen mutado** (Germline_mutation, cualitativa): tiene un valor único, el gen TP53.
-
--   **Identificador personal** (Individual_ID, cualitativa): identificador individual de cada persona.
-
--   **Sexo** (Sex, cualitativa): corresponde al sexo de la persona. F se denota para femenino y M para masculino.
-
--   **Edad de diagnóstico** (Age_at_diagnosis, cuantitativa): edad en la que fue diagnosticado el padecimiento en la persona.
-
--   **Topografía** (Topography, cualitativa): área en la que se encuentra el padecimiento.
-
--   **Topografía específica** (Short_topo, cualitativa): área específica en la que se encuentra el padecimiento.
-
--   **Morfología** (Morphology, cualitativa): se refiere al tipo de padecimiento.
-
--   **Muerte** (Dead, cualitativa): indica si la persona está muerta o viva. Se denota TRUE cuando está muerta y FALSE cuando está viva.
+El estudio analiza 1,153 individuos de entre 14 y 90 años, provenientes de distintas regiones y registrados por el Instituto Nacional del Cáncer de EE. UU. en enero de 2025. Todos son pacientes o personas con alto riesgo de cáncer de mama y muestran expresión del gen TP53 en tejido mamario. Cada individuo constituye una unidad de análisis. Se consideran variables demográficas (país, región, sexo, edad al diagnóstico), identificadores individuales y características clínicas del tumor (topografía, morfología y estado de vida o muerte).
 
 # Discusión y análisis de resultados
 
@@ -180,37 +148,29 @@ Desviación estándar: 19.2 años. Varianza: 369 años IQR: 28 años
 
 ## Relación de edad al diagnóstico y mutaciones más frecuentes
 
-Al analizar la relación entre la variable Age_at_diagnosis y MUT_ID usando las 10 mutaciones más frecuentes, se utilizó shapiro.test para comprobar si las variables se dstribuyen normalmente. Debido a que se presentaron pocos datos que si cumplen con esta condición, se escogió Kruskal-Wallis para determinar si hay una diferencia significativa entre los distintos grupos de mutaciones.
-
-![Relación de edad al diagnóstico y mutaciones más frecuentes](../res/Edad_MUTID.pdf){width="60%"}
+Al analizar la relación entre la variable Age_at_diagnosis y MUT_ID usando las 10 mutaciones más frecuentes, se utilizó shapiro.test para comprobar si las variables se dstribuyen normalmente. Debido a que se presentaron pocos datos que si cumplen con esta condición, se escogió Kruskal-Wallis para determinar si hay una diferencia significativa entre los distintos grupos de mutaciones. Esto se observa mediante la Figura 1.
 
 ## Evaluación del método Kruskal-Wallis para encontrar diferencias significativas entre edades al diagnóstico de distintos grupos.
 
-Mediante la aplicación de Kruskal-Wallis se detectó un valor menor que 0,05 lo que significa que entre algunos de los grupos analizados hay una diferencia significativa respecto a las edades al diagnóstico. A partir de ellos, se aplicó dunnTest que ayuda a separar pares de grupos para que diferencias hay entre ellos y así detectar los tipos de mutaciones con mayor o menor edad de diagnóstico.
+Mediante la aplicación de Kruskal-Wallis se detectó un valor p menor que 0,05 lo que significa que entre algunos de los grupos analizados hay una diferencia significativa respecto a las edades al diagnóstico. A partir de ellos, se aplicó dunnTest que ayuda a separar pares de grupos para que diferencias hay entre ellos y así detectar los tipos de mutaciones con mayor o menor edad de diagnóstico.
 
 ## Diferencia de rangos y comparación entre mutaciones
 
-En este gráfico se presentan diferencias de rangos promedio entre pares de mutaciones. Cada punto es una comparación y los colores son determindados de acuerdos a si el valor p es menor a 0,05 (rojos) y o sino (grises), es decir, si se presenta una diferencia estadística significativa.
+En la Figura 2 se presentan diferencias de rangos promedio entre pares de mutaciones. Cada punto es una comparación y los colores son determindados de acuerdos a si el valor p es menor a 0,05 (rojos) y o sino (grises), es decir, si se presenta una diferencia estadística significativa.
 
 El eje vertical permite observar que mutación presenta un diagnóstico mayor respecto a la mutación con la que se compara, si la diferencia es positiva, el primera mutación del par es la que tiende a asociarse con una edad de diagnóstico tardío. Si la diferencia es negativa, el primer par es, en cambio, el que se relaciona con una edad temprana de diagnóstico.
 
 Por lo tanto, las mutaciones 4585 y 2242 exponen una tendencia a asociarse con edad más altas de diagnóstico, al compararse con las mutaciones 3294, 3297, 2705 y 2143. Además, se encontró que las mutaciones 2705, 3297 y 3294, se asocian a edades más tempranas al compararse con 2242.
 
-![Diferencia de rangos y comparación entre mutaciones](../res/Forest_plot.pdf){width="60%"}
-
 ## Distribución de edades y edades al diagnóstico
 
-El primer histograma muestra que la distribución de la edad al diagnóstico es asimétrica hacia la derecha (sesgo positivo). La mayoría de los casos se concentran entre los 25 y 40 años, con un pico marcado alrededor de los 30 años, lo que indica que este grupo etario es el más común en los registros disponibles.
+El histograma (Figura 3) muestra que la distribución de la edad al diagnóstico es asimétrica hacia la derecha (sesgo positivo). La mayoría de los casos se concentran entre los 25 y 40 años, con un pico marcado alrededor de los 30 años, lo que indica que este grupo etario es el más común en los registros disponibles.
 
 A partir de los 45–50 años la frecuencia comienza a disminuir de manera notable, y existe una cola extendida hacia edades más avanzadas (hasta alrededor de 75–80 años), pero con muy pocos casos. Esta forma confirma que la distribución no es normal y que la base contiene una gran proporción de diagnósticos en edades relativamente jóvenes.
 
-![Histograma de edades al diagnóstico](../res/Histograma_edad_diag.pdf){width="60%"}
-
-El segundo histograma, aunque basado en un subconjunto más pequeño debido a la presencia de muchos valores NA (esto debido a la alta mortalidad que presentan los pacientes con cáncer), presenta una forma muy similar: un claro sesgo hacia la derecha y mayor concentración de casos entre los 25 y 40 años, con un máximo alrededor de los 30 años.
+El segundo histograma, Figura 4, aunque basado en un subconjunto más pequeño debido a la presencia de muchos valores NA (esto debido a la alta mortalidad que presentan los pacientes con cáncer), presenta una forma muy similar: un claro sesgo hacia la derecha y mayor concentración de casos entre los 25 y 40 años, con un máximo alrededor de los 30 años.
 
 La menor cantidad total de observaciones hace que las barras sean más variables y que la forma no se vea tan suave, pero la tendencia general se mantiene: hay pocos casos en edades muy jóvenes (\<20) y muy pocos casos por encima de los 60 años.
-
-![Histograma de edades](../res/Histograma_edad.pdf){width="60%"}
 
 Ambos histogramas reflejan una tendencia consistente:
 
@@ -234,11 +194,11 @@ En primer lugar, la correlación entre la edad (Age) y el conteo combinado de mu
 
 En conjunto, ambos análisis sugieren que ni la edad ni la edad al diagnóstico se asocian de manera consistente o relevante con el conteo de mutaciones TP53 provenientes de los consorcios TCGA, ICGC y GENIE.
 
-Gráficamente, se puede observar mediante Figura 7 y Figura 8.
+Gráficamente, se puede observar mediante Figura 5 y Figura 6.
 
 ## Relación entre la edad y edad al diagnóstico con el conteo de mutaciones reportadas por los consorcios internacionales
 
-Los gráficos de dispersión (Figura 7 y 8) muestran visualmente la relación entre la edad y el conteo de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE. En el caso de la variable Age, los puntos se encuentran ampliamente dispersos y la línea de tendencia lineal es casi horizontal, lo que confirma la ausencia de una relación clara entre ambas variables.
+Los gráficos de dispersión (Figura 5 y 6) muestran visualmente la relación entre la edad y el conteo de mutaciones reportadas por los consorcios TCGA, ICGC y GENIE. En el caso de la variable Age, los puntos se encuentran ampliamente dispersos y la línea de tendencia lineal es casi horizontal, lo que confirma la ausencia de una relación clara entre ambas variables.
 
 Para la variable Age_at_diagnosis, aunque la línea de tendencia presenta una leve pendiente negativa, la dispersión sigue siendo elevada, indicando que la relación es muy débil. Esto coincide con el valor de $\rho$ obtenido en la correlación, que muestra una asociación estadísticamente significativa pero prácticamente irrelevante.
 
@@ -246,19 +206,19 @@ Para la variable Age_at_diagnosis, aunque la línea de tendencia presenta una le
 
 ### Nivel general
 
-Durante el año 2022 la población costarricense presentó una totalidad de 1232 casos de cáncer de mama, lo anterior con una particularidad: a partir del gráfico de la distribución de casos según el sexo para Costa Rica, se determina la existencia de una brecha considerable en la incidencia del cáncer de mama en las personas de sexo masculino respecto a las personas de sexo femenino; los masculinos presentaron únicamente seis casos, mientras que las féminas acumularon una cantidad de 1226 casos. El fenómeno descrito no corresponde a un hecho aislado, tal como menciona Soto Flores (2015) " el cáncer de mama es la causa líder de muerte en mujeres de países en vías de desarrollo y la segunda causa de muerte en países desarrollados, siendo segundo al cáncer de pulmón" (p. 799). Asimismo, este autor se refiere al escenario nacional: "dentro de la población costarricense el cáncer de mama es la causa más común de mortalidad en mujeres por neoplasia maligna" (p. 800).
+Durante el año 2022 la población costarricense presentó una totalidad de 1232 casos de cáncer de mama, lo anterior con una particularidad: a partir del gráfico de la distribución de casos según el sexo para Costa Rica (Figura 9), se determina la existencia de una brecha considerable en la incidencia del cáncer de mama en las personas de sexo masculino respecto a las personas de sexo femenino; los masculinos presentaron únicamente seis casos, mientras que las féminas acumularon una cantidad de 1226 casos. El fenómeno descrito no corresponde a un hecho aislado, tal como menciona Soto Flores (2015) " el cáncer de mama es la causa líder de muerte en mujeres de países en vías de desarrollo y la segunda causa de muerte en países desarrollados, siendo segundo al cáncer de pulmón" (p. 799). Asimismo, este autor se refiere al escenario nacional: "dentro de la población costarricense el cáncer de mama es la causa más común de mortalidad en mujeres por neoplasia maligna" (p. 800).
 
-Del párrafo precedente se resalta un hecho importante, el cual consiste en que la mayoría de diagnósticos de cáncer de mama en el 2022 se presentaron en el sexo femenino, con un 99.51% del total. ![Distribución de los casos por sexos: Costa Rica](../res/Distribucion_casos_CR_sexos.pdf){width="60%"}
+Del párrafo precedente se resalta un hecho importante, el cual consiste en que la mayoría de diagnósticos de cáncer de mama en el 2022 se presentaron en el sexo femenino, con un 99.51% del total. 
 
 ### Sexo masculino
 
-Como se mencionó antes, de los 1232 casos solo seis fueron diagnosticados en sujetos de sexo masculino, equivalente a un 0.49% del total. En lo que respecta a la distribución de los casos, considerando el gráfico que describe dicho aspecto de acuerdo a los rangos etarios en el sexo masculino, se determina que la mayoría de casos se situaron en la categoría que comprende de los 65 a los 69 años, con una acumulación de dos elementos. Además, es importante destacar la inexistencia de diágnosticos de cáncer de mama en masculinos menores a 45 años, a la vez que se visualiza una concentración de los casos a partir de los 60 años.
+Como se mencionó antes, de los 1232 casos solo seis fueron diagnosticados en sujetos de sexo masculino, equivalente a un 0.49% del total. En lo que respecta a la distribución de los casos, considerando el gráfico que describe dicho aspecto de acuerdo a los rangos etarios en el sexo masculino, se determina que la mayoría de casos se situaron en la categoría que comprende de los 65 a los 69 años, con una acumulación de dos elementos. Además, es importante destacar la inexistencia de diágnosticos de cáncer de mama en masculinos menores a 45 años, a la vez que se visualiza una concentración de los casos a partir de los 60 años. Se puede observar mediante la Figura 7.
 
 ### Sexo femenino
 
 En el caso del sexo femenino, se destaca la inexistencia de diagnósticos en personas menores a 20 años, lo cual representa un rango mucho menor en comparación al sexo masculino. Asimismo, la agrupación de edades que acumula la mayor cantidad de casos corresponde a aquella que comprende de los 55 a los 59 años con un total de 168. La variación de esta cifra respecto a otras agrupaciones es muy pequeña: el grupo a partir de los 75 años posee una cantidad de 161 elementos, de igual manera, el rango de edad que va de los 65 a los 69 años contiene 156 elementos.
 
-Por otro lado, se visualiza una concentración de los casos a partir de los 40 años, donde las cifras acumuladas en los rangos etarios son mayores a 100. Previo a los 40 años, a excepción del rango que va de los 35 a los 39 años, todos acumulan cantidades menores a 20 elementos. En particular, se destaca que la menor cantidad de diagnósticos se sitúa en el rango etario que comprende de los 20 a los 24 años, con apenas dos elementos.
+Por otro lado, se visualiza una concentración de los casos a partir de los 40 años, donde las cifras acumuladas en los rangos etarios son mayores a 100. Previo a los 40 años, a excepción del rango que va de los 35 a los 39 años, todos acumulan cantidades menores a 20 elementos. En particular, se destaca que la menor cantidad de diagnósticos se sitúa en el rango etario que comprende de los 20 a los 24 años, con apenas dos elementos. Se puede observar mediante la Figura 8.
 
 ## Relación del escenario costarricense en el 2022 y la expresión mutada del gen TP53
 
@@ -279,8 +239,6 @@ Para el rango etario bajo estudio, se presenta un fenómeno particular respecto 
 ### Rango etario con la tercer mayor incidencia: de los 65 a los 69 años
 
 Se identifican dos aspectos principales. En primer lugar, la presencia de valores atípicos situados en el rango etario bajo estudio para tres mutaciones distintas: 2143, 3294 y 3236. En segundo lugar, la extensión del bigote de la mutación de identificador 2242 comprende las edades estudiadas; si bien, la mayoría de expresiones de la mutación 2242 no se sitúa en ellas, su presencia en tal rango etario no se considera un valor atípico.
-
-\newpage
 
 # Conclusiones
 
@@ -321,14 +279,50 @@ En conjunto, estos hallazgos sugieren que no existe una fuerte concordancia entr
 \centering
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{`r here("res", "correlacion_edad.pdf")}
+\includegraphics[width=\linewidth]{../res/Edad_MUTID.pdf}
+\caption*{Figura 1. Relación de edad al diagnóstico y mutaciones más frecuentes}
 \end{minipage}
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{`r here("res", "Correlacion_edad_diag.pdf")`}
+\includegraphics[width=\linewidth]{../res/Forest_plot.pdf}
+\caption*{Figura 2. Diferencia de rangos y comparación entre mutaciones}
 \end{minipage}
 \end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{../res/Histograma_edad_diag.pdf}
+\caption*{Figura 3. Histograma de edades al diagnóstico}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{../res/Histograma_edad.pdf}
+\caption*{Figura 4. Histograma de edades}
+\end{minipage}
+\end{figure}
+```
+
+
+```{=latex}
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "correlacion_edad.pdf")`}
+\caption*{Figura 5. Correlación de edad con el conteo de mutaciones}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{`r here("res", "Correlación_edad_diag.pdf")`}
+\caption*{Figura 6. Correlación de edad al diagnóstico con el conteo de mutaciones}
+\end{minipage}
+\end{figure}
+
 ```
 
 ```{=latex}
@@ -336,17 +330,29 @@ En conjunto, estos hallazgos sugieren que no existe una fuerte concordancia entr
 \centering
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{`r here("res", "Distribución_casos_CR_hombres.pdf")`}
+\includegraphics[width=\linewidth]{`r here("res", "Distribucion_casos_CR_hombres.pdf")`}
+\caption*{Figura 7. Distribución de casos CR hombres}
 \end{minipage}
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
-\includegraphics[width=\linewidth]{`r here("res", "Distribución_casos_CR_mujeres.pdf")`}
+\includegraphics[width=\linewidth]{`r here("res", "Distribucion_casos_CR_mujeres.pdf")`}
+\caption*{Figura 8. Distribución de casos CR mujeres}
 \end{minipage}
 \end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.6\textwidth}
+\centering
+\includegraphics[width=\linewidth]{../res/Distribucion_casos_CR_sexos.pdf}
+\caption*{Figura 9. Distribución de los casos por sexos: Costa Rica}
+\end{minipage}
+\end{figure}
+
 ```
 
-\newpage
+\clearpage
 
 # Referencias
 
